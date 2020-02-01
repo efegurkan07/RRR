@@ -26,9 +26,19 @@ public class BodyPart
     private BodyPartType _type;
     public BodyPartType Type => _type;
 
+    private SparePart _lastSparePartUsed;
+    public SparePart LastSparePartUsed => _lastSparePartUsed;
+
     public BodyPart(BodyPartType type)
     {
         _type = type;
         _health = Config.initialBodyPartHealth;
+    }
+
+    public void Repair(SparePart sparePart)
+    {
+        _lastSparePartUsed = sparePart;
+        //TODO Update Health
+        _health += 100f;
     }
 }

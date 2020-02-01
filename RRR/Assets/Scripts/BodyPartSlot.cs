@@ -5,7 +5,7 @@ using Image = UnityEngine.UI.Image;
 
 public class BodyPartSlot : MonoBehaviour, IDropHandler
 {
-    private Image image;
+    private Image _image;
 
     [SerializeField]
     private BodyPart.BodyPartType type;
@@ -15,41 +15,41 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         get => type;
     }
 
-    private float _health;
     private SparePart.SparePartType _sparePartType;
-    
-    float Health
-    {
-        get => _health;
-        set => _health = value;
-    }
-    
+    private BodyPart _bodyPart;
+
+    public BodyPart BodyPart => _bodyPart;
+
+    float Health => _bodyPart.Health;
+
     SparePart.SparePartType SparePartType
     {
         get => _sparePartType; 
         set
         {
             _sparePartType = value;
-            image.color = SparePart.GetColor(value);
+            _image.color = SparePart.GetColor(value);
         }
     }
 
     public void Awake()
     {
-        image = GetComponent<Image>();
+        _image = GetComponent<Image>();
     }
 
     public void Initialize(BodyPart bodyPart)
     {
         type = bodyPart.Type;
-        _health = bodyPart.Health;
+        _bodyPart = bodyPart;
+        SparePartType = bodyPart.LastSparePartUsed.Type;
     }
     
-    public void Repair(SparePart sparePart)
+    void Repair(SparePart sparePart)
     {
         _sparePartType = sparePart.Type;
         Debug.Log("Repairing " + type + " with " + _sparePartType);
-        image.color = sparePart.GetColor();
+        _image.color = sparePart.GetColor();
+        _bodyPart.Repair(sparePart);
     }
 
     public void OnDrop(PointerEventData eventData)
