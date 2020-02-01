@@ -11,8 +11,7 @@ public class SparePart
         YELLOW = 20,
         EMPTY = 0
     }
-
-    [SerializeField]
+    
     private SparePartType _type;
 
     public SparePartType Type

@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
 {
     public static InventorySlot itemBeingDragged;
     
+    [SerializeField]
     private SparePart _sparePart;
     private bool dragging;
     private Vector2 initialPosition;
@@ -27,7 +28,7 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         _sparePart = sparePart;
         //TODO Assign the related sprite, name , whatever
-        _image.color = SparePart.GetColor(sparePart.Type);
+        _image.color = sparePart.GetColor();
     }
     
     public void OnDrag(PointerEventData eventData)

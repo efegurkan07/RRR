@@ -38,7 +38,7 @@ public class BodyPart
         _lastSparePartUsed = sparePart;
         GameManager.Instance.Inventory.Remove(sparePart);
         //TODO Update Health
-        _health += (int) sparePart.Type;
+        _health = (int) Mathf.Clamp((int) sparePart.Type + _health, 0, Config.maximumHealth);
     }
 
     public void GetDamaged(int damage)
