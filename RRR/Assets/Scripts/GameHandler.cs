@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
 	private float _remainingTime;
+	private bool _isGameOver;
 
 	// Start is called before the first frame update
 	void Start()
@@ -18,7 +19,7 @@ public class GameHandler : MonoBehaviour
 	{
 		_remainingTime -= Time.deltaTime;
 
-		if (_remainingTime <= 0)
+		if (!_isGameOver && _remainingTime <= 0)
 		{
 			OnTimeExpired();
 		}
@@ -36,6 +37,7 @@ public class GameHandler : MonoBehaviour
 
 	public void OnTimeExpired()
 	{
+		_isGameOver = true;
 		GameManager.Instance.GameOver();
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
 	}

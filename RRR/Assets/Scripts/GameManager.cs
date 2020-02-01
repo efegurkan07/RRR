@@ -5,7 +5,7 @@ public class GameManager
 	private static GameManager _instance;
 
 	private long _lastScore;
-	private List<long> _scores = new List<long>();
+	private List<long> _scores = new List<long> {};
 
 	public readonly float TimePerLevel = 10;
 
@@ -37,5 +37,10 @@ public class GameManager
 	public long AddScore(long scoreToAdd)
 	{
 		return _lastScore += scoreToAdd;
+	}
+
+	public List<long> GetScores()
+	{
+		return _scores;
 	}
 }
