@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
+﻿using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SlideHandler : MonoBehaviour
 {
+    private const string next = "  Next ";
+    public TextMeshProUGUI _buttonText;
+    private float _buttonAnimationSpeed = .3f;
+    private float _buttonSecondsToChange = 0f;
+
+    public SpriteRenderer bgRenderer; 
+    
     [SerializeField] private GameObject[] Slides;
     [SerializeField] private float SlideTimeout;
 
@@ -31,6 +36,22 @@ public class SlideHandler : MonoBehaviour
         {
             NextSlide();
         }
+        //some go up, some go down...
+        _buttonSecondsToChange -= Time.deltaTime;
+
+        if (_buttonSecondsToChange <= 0)
+        {
+            if (_buttonText.text == next)
+                _buttonText.text = next + ">";
+            else if (_buttonText.text == next + ">")
+                _buttonText.text = next + ">>";
+            else
+                _buttonText.text = next;
+
+            _buttonSecondsToChange += _buttonAnimationSpeed;
+        }
+
+        bgRenderer.color = Color.grey * (1f + Mathf.Sin(Mathf.Rad2Deg * Time.time / 16f) * 0.07f);
     }
 
     public void NextSlide()
