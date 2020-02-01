@@ -20,6 +20,7 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         _image = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
+        FillSlot(SparePart.EMPTY);
     }
 
     public void FillSlot(SparePart sparePart)
@@ -43,8 +44,15 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        itemBeingDragged = this;
-        initialPosition = rectTransform.position;
-        GetComponentInParent<CanvasGroup>().blocksRaycasts = false;
+        if (_sparePart.Type != SparePart.SparePartType.EMPTY)
+        {
+            itemBeingDragged = this;
+            initialPosition = rectTransform.position;
+            GetComponentInParent<CanvasGroup>().blocksRaycasts = false;
+        }
+        else
+        {
+            eventData.pointerDrag = null;
+        }
     }
 }
