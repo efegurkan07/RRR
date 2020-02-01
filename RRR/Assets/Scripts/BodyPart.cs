@@ -12,9 +12,9 @@ public class BodyPart
         TAIL
     }
 
-    private float _health;
+    private int _health;
 
-    public float Health
+    public int Health
     {
         get { return _health; }
     }
@@ -38,6 +38,11 @@ public class BodyPart
         _lastSparePartUsed = sparePart;
         RepairUIHandler.robot.Inventory.Remove(sparePart);
         //TODO Update Health
-        _health += 100f;
+        _health += (int) sparePart.Type;
+    }
+
+    public void GetDamaged(int damage)
+    {
+        _health -= damage;
     }
 }

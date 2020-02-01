@@ -152,5 +152,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Score: 0
-  SparePartHandOut: 0
+  SparePartHandOut: 5
   DeathFX: {fileID: 0}

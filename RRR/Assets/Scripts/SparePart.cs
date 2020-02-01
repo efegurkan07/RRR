@@ -6,10 +6,10 @@ public class SparePart
     
     public enum SparePartType
     {
-        RED,
-        BLUE,
-        YELLOW,
-        EMPTY
+        RED = 5,
+        BLUE = 10,
+        YELLOW = 20,
+        EMPTY = 0
     }
 
     [SerializeField]

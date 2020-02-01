@@ -4,7 +4,7 @@ public static class Config
 	public const float levelRunSpeed = 3f;
 	public static float skylineRunSpeed = 0.15f;
 	public const int bodyPartCount = 3;
-	public const float initialBodyPartHealth = 100;
+	public const int initialBodyPartHealth = 100;
 	public const float secondsPerLevel = 10000f;
 	public const int inventoryCapacity = 5;
 	//used depending on lane texture tiling
