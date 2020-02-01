@@ -10,6 +10,7 @@ public class GameManager
 
 	public long LastScore => lastScore;
 	public bool IsGameOver;
+	public float secondsToNextObstacles;
 
 	public static GameManager Instance
 	{

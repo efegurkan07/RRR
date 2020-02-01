@@ -18,13 +18,11 @@ public class Robot : MonoBehaviour
 
 	private void Update()
 	{
-		var position = transform.position;
-		position = Vector3.Lerp(
-			position,
-			new Vector3(position.x, position.y, currentLane.transform.position.z),
-			Time.deltaTime
+		transform.position = Vector3.MoveTowards(
+			transform.position,
+			new Vector3(transform.position.x, transform.position.y, currentLane.transform.position.z),
+			Config.robotRunSpeed * Time.deltaTime
 		);
-		transform.position = position;
 	}
 
 	private bool AddCollectibleToInventory(SparePart item)
