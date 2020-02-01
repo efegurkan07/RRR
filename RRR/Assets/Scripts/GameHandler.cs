@@ -3,40 +3,40 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-    private float _remainingTime;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        _remainingTime = GameManager.Instance.TimePerLevel;
-        SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
-        
-        GameManager.Instance.StartNewGame();
-    }
+	private float _remainingTime;
 
-    private void LateUpdate()
-    {
-        _remainingTime -= Time.deltaTime;
+	// Start is called before the first frame update
+	void Start()
+	{
+		_remainingTime = GameManager.Instance.TimePerLevel;
+		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
 
-        if (_remainingTime <= 0)
-        {
-            OnTimeExpired();
-        }
-    }
+		GameManager.Instance.StartNewGame();
+	}
 
-    public void AddScore(long scoreToAdd)
-    {
-        GameManager.Instance.AddScore(scoreToAdd);
-    }
+	private void LateUpdate()
+	{
+		_remainingTime -= Time.deltaTime;
 
-    public float GetRemainingTime()
-    {
-        return _remainingTime;
-    }
+		if (_remainingTime <= 0)
+		{
+			OnTimeExpired();
+		}
+	}
 
-    public void OnTimeExpired()
-    {
-        GameManager.Instance.GameOver();
-        SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
-    }
+	public void AddScore(long scoreToAdd)
+	{
+		GameManager.Instance.AddScore(scoreToAdd);
+	}
+
+	public float GetRemainingTime()
+	{
+		return _remainingTime;
+	}
+
+	public void OnTimeExpired()
+	{
+		GameManager.Instance.GameOver();
+		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
+	}
 }
