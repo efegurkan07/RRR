@@ -32,8 +32,17 @@ public class InputHandler : MonoBehaviour
 			_clickEnd = null;
 		}
 
-		//check what is clicked and do awesome things
-		//TODO
+		//check what is clicked and do awesome things:
+		
+		//drag robot to lane
+		{
+			Robot robot = _clickStart?.collider?.GetComponent<Robot>();
+			Lane lane = _clickEnd?.collider?.GetComponent<Lane>();
+			if (robot != null && lane != null)
+			{
+				robot.currentLane = lane;
+			}
+		}
 	}
 
 	private RaycastHit CastRay()
