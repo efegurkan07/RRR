@@ -25,16 +25,19 @@ public class Robot : MonoBehaviour
 		//	.First();
 		_inventory = new List<SparePart>();
 		_bodyParts = new List<BodyPart>();
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY_2));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN_2));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_2));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL));
 
 		_healthBar.text = _health.ToString();
 		
 		GameManager.Instance.AddRobot(this);
+		
+		// TEST
+		_inventory.Add(new SparePart(SparePart.SparePartType.RED));
+		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
+		_inventory.Add(new SparePart(SparePart.SparePartType.YELLOW));
+		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
 	}
 
 	public void SetStartLane(Lane lane)

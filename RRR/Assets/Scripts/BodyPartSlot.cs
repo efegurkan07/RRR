@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Image = UnityEngine.UI.Image;
@@ -41,7 +42,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     {
         type = bodyPart.Type;
         _bodyPart = bodyPart;
-        SparePartType = bodyPart.LastSparePartUsed.Type;
+        SparePartType = SparePart.SparePartType.EMPTY;
     }
     
     void Repair(SparePart sparePart)
