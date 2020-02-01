@@ -96,7 +96,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 40eacee89c55e4644b3887460f16e56e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb653787fac54ddca4fc17d7af2a83fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 1
 --- !u!114 &8182880966773560597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  Score: 0
+  DeathFX: {fileID: 0}
 --- !u!65 &6730717172818270835
 BoxCollider:
   m_ObjectHideFlags: 0
