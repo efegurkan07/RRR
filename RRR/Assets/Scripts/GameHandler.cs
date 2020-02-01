@@ -1,19 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
+
+[Serializable]
+public class ObstacleSpawnConfig
+{
+	public Obstacle obstaclePrefab;
+	public int Probability;
+}
+
+class SpawnMapping {
+	public int Index;
+	public int Min;
+	public int Max;
+}
 
 public class GameHandler : MonoBehaviour
 {
 	public Lane[] allLanes;
 	[SerializeField] private Material _laneMaterial;
-	[SerializeField] private Obstacle[] _obstaclePrefabs;
+	[SerializeField] private ObstacleSpawnConfig[] _obstacleSpawnConfigs;
+	[SerializeField] private ObstacleSpawnConfig[] _peoplePartsSpawnConfigs;
 	[SerializeField] private Transform _obstacleContainer;
 	[SerializeField] private GameObject jetpackGuy = default;
 
 	[SerializeField] private Robot _robotPrefab;
 
-	
 	void Start()
 	{
 		GameManager.Instance.StartNewGame();
@@ -49,8 +64,6 @@ public class GameHandler : MonoBehaviour
 			OnGameOver();
 		}
 	}
-
-	private Random random = new Random();
 	
 	private void HandleObstacleSpawning()
 	{
@@ -60,9 +73,12 @@ public class GameHandler : MonoBehaviour
 			var indecies = Enumerable.Range(0, allLanes.Length).OrderBy(x => Random.value).Take(Random.Range(1, allLanes.Length - 1)).ToList();
 			for (int i = 0; i < indecies.Count; i++)
 			{
-				float lineDepth = allLanes[indecies[i]].transform.position.z;
-				int randomIndex = Random.Range(0, _obstaclePrefabs.Length);
-				var randomObstacle = _obstaclePrefabs[randomIndex];
+				var lineDepth = allLanes[indecies[i]].transform.position.z;
+				
+				var spawnObstacle = Random.Range(0, 2) == 0; // 0 or 1
+				var objectsToChooseFrom = spawnObstacle ? _obstacleSpawnConfigs : _peoplePartsSpawnConfigs;
+				
+				var randomObstacle = PickRandom(objectsToChooseFrom);
 				Instantiate(
 					randomObstacle.gameObject,
 					new Vector3(Config.rightLineLimit, 0, lineDepth),
@@ -73,6 +89,36 @@ public class GameHandler : MonoBehaviour
 
 			GameManager.Instance.secondsToNextObstacles = Random.Range(0.5f, 1f) * Config.levelRunSpeed;
 		}
+	}
+
+	private Obstacle PickRandom(ObstacleSpawnConfig[] objectsToChooseFrom)
+	{
+		List<SpawnMapping> probabilityMapping = new List<SpawnMapping>();
+		int maxProbability = 0;
+		
+		for (int i = 0; i < objectsToChooseFrom.Length; i++)
+		{
+			probabilityMapping.Add(new SpawnMapping()
+			{
+				Index = i,
+				Min = maxProbability,
+				Max = maxProbability + objectsToChooseFrom[i].Probability - 1
+			});
+			maxProbability += objectsToChooseFrom[i].Probability;
+		}
+		
+		int random = Random.Range(0, maxProbability);
+
+		int indexToSpawn = -1;
+		foreach(SpawnMapping m in probabilityMapping)
+		{
+			if (m.Min <= random && m.Max >= random)
+			{
+				indexToSpawn = m.Index;
+			}
+		}
+
+		return objectsToChooseFrom[indexToSpawn].obstaclePrefab;
 	}
 
 	private void HandleGameTime()
