@@ -308,6 +308,8 @@ MonoBehaviour:
   _obstacleContainer: {fileID: 222354159}
   jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
     type: 3}
+  _robotPrefab: {fileID: 3632957810811606935, guid: 8808022436516433ca11931add3989b5,
+    type: 3}
 --- !u!4 &1343185631
 Transform:
   m_ObjectHideFlags: 0
@@ -461,79 +463,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3632957809372395565
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3632957810811606932, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Robot
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.24776004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.96882147
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 28.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632957810811606934, guid: 8808022436516433ca11931add3989b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 815531741, guid: 8808022436516433ca11931add3989b5, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8808022436516433ca11931add3989b5, type: 3}
 --- !u!1001 &4978227704176545085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 4978227703987787730, guid: 0cb8abc13996a4c11a50ca9ee2a7cb33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4978227703987787730, guid: 0cb8abc13996a4c11a50ca9ee2a7cb33,
         type: 3}
@@ -738,6 +667,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661749916, guid: 93221f38ea370448ba799460359cb453, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93221f38ea370448ba799460359cb453, type: 3}
