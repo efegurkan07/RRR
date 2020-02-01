@@ -592,6 +592,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheatUI
       objectReference: {fileID: 0}
+    - target: {fileID: 425785312456898213, guid: d3514b46b2f8f4db79d77563a772d6cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 425785312456898214, guid: d3514b46b2f8f4db79d77563a772d6cf,
         type: 3}
       propertyPath: m_LocalPosition.x
