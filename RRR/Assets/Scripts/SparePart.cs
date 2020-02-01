@@ -2,6 +2,8 @@
 
 public class SparePart
 {
+    public static SparePart EMPTY = new SparePart(SparePartType.EMPTY);
+    
     public enum SparePartType
     {
         RED,
@@ -41,5 +43,10 @@ public class SparePart
             default:
                 return Color.grey;
         }   
+    }
+
+    public Color GetColor()
+    {
+        return GetColor(_type);
     }
 }

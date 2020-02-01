@@ -86,7 +86,6 @@ public class Robot : MonoBehaviour
 				obstacle.OnObjectCollided();
 			}
 		}
-
 	}
 
 	private void Update()
@@ -101,14 +100,10 @@ public class Robot : MonoBehaviour
 		}
 	}
 
-	private bool AddCollectibleToInventory(SparePart item)
+	private bool AddSparePartToInventory(SparePart item)
 	{
-		if (_inventory.Count >= Config.inventoryCapacity)
-		{
-			_inventory.Add(item);
-			return true;
-		}
-
-		return false;
+		if (_inventory.Count >= Config.inventoryCapacity) return false;
+		_inventory.Add(item);
+		return true;
 	}
 }

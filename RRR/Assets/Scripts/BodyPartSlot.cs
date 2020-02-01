@@ -1,10 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using Image = UnityEngine.UI.Image;
 
-public class BodyPartSlot : MonoBehaviour
+public class BodyPartSlot : MonoBehaviour, IDropHandler
 {
     private Image image;
-    
+
     [SerializeField]
     private BodyPart.BodyPartType type;
 
@@ -32,6 +34,11 @@ public class BodyPartSlot : MonoBehaviour
         }
     }
 
+    public void Awake()
+    {
+        image = GetComponent<Image>();
+    }
+
     public void Initialize(BodyPart bodyPart)
     {
         type = bodyPart.Type;
@@ -41,5 +48,19 @@ public class BodyPartSlot : MonoBehaviour
     public void Repair(SparePart sparePart)
     {
         _sparePartType = sparePart.Type;
+        Debug.Log("Repairing " + type + " with " + _sparePartType);
+        image.color = sparePart.GetColor();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        InventorySlot inventorySlot = InventorySlot.itemBeingDragged;
+        if (inventorySlot != null)
+        {
+            SparePart part = inventorySlot.SparePart;
+            Repair(part);
+            inventorySlot.FillSlot(SparePart.EMPTY);
+        }
+
     }
 }
