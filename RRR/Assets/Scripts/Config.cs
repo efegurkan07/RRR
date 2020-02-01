@@ -3,7 +3,6 @@ using UnityEngine;
 public static class Config
 {
 	public const float rightLineLimit = 20;
-	public const float secondsPerLevel = 100f;
 	public const float levelRunSpeed = 3f;
 	public const int bodyPartCount = 6;
 	public const float initialBodyPartHealth = 100;
