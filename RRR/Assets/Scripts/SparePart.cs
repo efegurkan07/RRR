@@ -2,7 +2,7 @@
 
 public class SparePart
 {
-    public enum SparePartColor
+    public enum SparePartType
     {
         RED,
         BLUE,
@@ -11,20 +11,35 @@ public class SparePart
     }
 
     [SerializeField]
-    private SparePartColor _color;
+    private SparePartType _type;
 
-    public SparePartColor Color
+    public SparePartType Type
     {
-        get => _color;
+        get => _type;
         set
         {
-            _color = value;
+            _type = value;
             //TODO add names etc.
         }
     }
 
-    public SparePart(SparePartColor color)
+    public SparePart(SparePartType type)
     {
-        _color = color;
+        _type = type;
+    }
+
+    public static Color GetColor(SparePartType sparePartType)
+    {
+        switch (sparePartType)
+        {
+            case SparePartType.RED :
+                return Color.red;
+            case SparePartType.BLUE :
+                return Color.blue;
+            case SparePartType.YELLOW :
+                return Color.yellow;
+            default:
+                return Color.grey;
+        }   
     }
 }
