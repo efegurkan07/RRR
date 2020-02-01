@@ -61,7 +61,6 @@ public class InputHandler : MonoBehaviour
 			Lane lane = _clickEnd?.collider?.GetComponent<Lane>();
 			if (robot != null && lane != null)
 			{
-				Debug.Log(("Switch Lane"));
 				robot.currentLane = lane;
 			}
 		}
@@ -69,7 +68,6 @@ public class InputHandler : MonoBehaviour
 			Robot robot = _clickStart?.collider?.GetComponent<Robot>();
 			if (doubleClick && robot != null)
 			{
-				Debug.Log(("Open repair"));
 				FindObjectOfType<GameUIHandler>().ShowRepairOverlay(robot);
 			}
 		}
