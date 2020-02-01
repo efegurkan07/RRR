@@ -9,7 +9,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     [SerializeField] Sprite gear;
 
     private Image _image;
-    private HealthBarHandler _healthBarHandler;
+    private HealthBarHandlerUI _healthBarHandlerUi;
     
     [SerializeField]
     private BodyPart.BodyPartType type;
@@ -39,7 +39,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     public void Awake()
     {
         _image = transform.GetChild(1).GetComponent<Image>();
-        _healthBarHandler = GetComponentInChildren<HealthBarHandler>();
+        _healthBarHandlerUi = GetComponentInChildren<HealthBarHandlerUI>();
     }
 
     public void Initialize(BodyPart bodyPart)
@@ -73,7 +73,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     void Update()
     {
-        _healthBarHandler.SetHealth(_bodyPart.Health);
+        _healthBarHandlerUi.SetHealth(_bodyPart.Health);
     }
     
     public Sprite GetSprite(SparePart part)

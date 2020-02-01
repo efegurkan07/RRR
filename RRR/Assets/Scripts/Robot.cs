@@ -8,7 +8,7 @@ using UnityEngine;
 public class Robot : MonoBehaviour
 {
 	[SerializeField] private GameObject _deathAnimation;
-	[SerializeField] private TextMeshPro _healthBar;
+	[SerializeField] private HealthBarHandler _healthBar;
 
 	private float Health
 	{
@@ -37,7 +37,7 @@ public class Robot : MonoBehaviour
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN));
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL));
 
-		_healthBar.text = Health.ToString();
+		_healthBar = GetComponentInChildren<HealthBarHandler>();
 		
 		GameManager.Instance.AddRobot(this);
 	}
@@ -129,7 +129,7 @@ public class Robot : MonoBehaviour
 
 	public void UpdateHealth()
 	{
-		_healthBar.text = Health.ToString("0") + "%";
+		_healthBar.UpdateHealth(Health);
 	}
 
 	public void GetDamaged(int damage)
