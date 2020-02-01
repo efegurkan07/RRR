@@ -24,18 +24,14 @@ public class Robot : MonoBehaviour
 	}
 	
 	public Lane currentLane; 
-	List<SparePart> _inventory; 
 	List<BodyPart> _bodyParts;
 	
-
-	public List<SparePart> Inventory => _inventory;
 	public List<BodyPart> BodyParts => _bodyParts;
 	
 	private void Start()
 	{
 		//currentLane = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - transform.position.z))
 		//	.First();
-		_inventory = new List<SparePart>();
 		_bodyParts = new List<BodyPart>();
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY));
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN));
@@ -44,12 +40,6 @@ public class Robot : MonoBehaviour
 		_healthBar.text = Health.ToString();
 		
 		GameManager.Instance.AddRobot(this);
-		
-		// TEST
-		_inventory.Add(new SparePart(SparePart.SparePartType.RED));
-		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
-		_inventory.Add(new SparePart(SparePart.SparePartType.YELLOW));
-		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
 	}
 
 	public void SetStartLane(Lane lane)
@@ -72,15 +62,18 @@ public class Robot : MonoBehaviour
 		var score = obstacle.GetScore();
 		var damage = obstacle.GetDamage();
 		var sparePart = obstacle.GetSparePart();
+		var consumed = false;
 
 		if (sparePart != SparePart.SparePartType.EMPTY)
 		{
-			AddSparePartToInventory(new SparePart(sparePart));
+			consumed = AddSparePartToInventory(new SparePart(sparePart));
+			
 		}
 		
 		if (score > 0)
 		{
 			GameManager.Instance.AddScore(score);
+			consumed = true;
 		}
 
 		if (damage > 0)
@@ -104,9 +97,13 @@ public class Robot : MonoBehaviour
 
 				Destroy(gameObject);
 			}
+			consumed = true;
 		}
-		
-		obstacle.OnObjectCollided();
+
+		if (consumed)
+		{
+			obstacle.OnObjectCollided();
+		}
 	}
 
 	private void Update()
@@ -123,8 +120,9 @@ public class Robot : MonoBehaviour
 
 	private bool AddSparePartToInventory(SparePart item)
 	{
-		if (_inventory.Count >= Config.inventoryCapacity || item.Type == SparePart.SparePartType.EMPTY) return false;
-		_inventory.Add(item);
+		if (GameManager.Instance.Inventory.Count >= Config.inventoryCapacity || item.Type == SparePart.SparePartType.EMPTY) return false;
+		
+		GameManager.Instance.Inventory.Add(item);
 		return true;
 	}
 

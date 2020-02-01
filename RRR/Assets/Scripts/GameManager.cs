@@ -12,6 +12,7 @@ public class GameManager
 	public bool IsGameOver;
 	public float secondsToNextObstacles;
 	
+	public List<SparePart> Inventory = new List<SparePart>();
 	private List<Robot> _robots = new List<Robot>();
 
 	public static GameManager Instance
@@ -43,6 +44,7 @@ public class GameManager
 		});
 		
 		_robots.Clear();
+		Inventory.Clear();
 	}
 
 	public void AddRobot(Robot robot)
