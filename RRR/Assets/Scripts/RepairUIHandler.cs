@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
 
 public class RepairUIHandler : MonoBehaviour
@@ -25,6 +26,16 @@ public class RepairUIHandler : MonoBehaviour
 		{
 			_inventory.Add(transform.GetChild(1).GetChild(i).GetComponentInChildren<InventorySlot>());
 		}
+	}
+
+	private void OnEnable()
+	{
+		GameManager.Instance.CurrentState = GameState.RepairOverlay;
+	}
+
+	private void OnDisable()
+	{
+		GameManager.Instance.CurrentState = GameState.DriveUnicorn;
 	}
 
 	public void Show(Robot robotToBeRepaired)
