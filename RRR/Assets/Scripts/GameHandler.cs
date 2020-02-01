@@ -62,7 +62,6 @@ public class GameHandler : MonoBehaviour
 			{
 				float lineDepth = allLanes[indecies[i]].transform.position.z;
 				int randomIndex = Random.Range(0, _obstaclePrefabs.Length);
-				Debug.Log("select " + randomIndex);
 				var randomObstacle = _obstaclePrefabs[randomIndex];
 				Instantiate(
 					randomObstacle.gameObject,

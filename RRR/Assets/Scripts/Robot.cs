@@ -56,11 +56,16 @@ public class Robot : MonoBehaviour
 
 		var score = obstacle.GetScore();
 		var damage = obstacle.GetDamage();
+		var sparePart = obstacle.GetSparePart();
 
+		if (sparePart != SparePart.SparePartType.EMPTY)
+		{
+			AddSparePartToInventory(new SparePart(sparePart));
+		}
+		
 		if (score > 0)
 		{
 			GameManager.Instance.AddScore(score);
-			obstacle.OnObjectCollided();
 		}
 
 		if (damage > 0)
@@ -81,11 +86,9 @@ public class Robot : MonoBehaviour
 
 				Destroy(gameObject);
 			}
-			else
-			{
-				obstacle.OnObjectCollided();
-			}
 		}
+		
+		obstacle.OnObjectCollided();
 	}
 
 	private void Update()

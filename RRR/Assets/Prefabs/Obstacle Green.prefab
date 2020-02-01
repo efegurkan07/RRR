@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3857678793685324591}
   - component: {fileID: 114332922875022822}
   m_Layer: 0
-  m_Name: Obstacle 2
+  m_Name: Obstacle Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,3 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950e27f92b644c0e85b672d2671078a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
+  Score: 0
+  SparePartHandOut: 3
+  DeathFX: {fileID: 0}
