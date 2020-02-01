@@ -43,6 +43,14 @@ public class InputHandler : MonoBehaviour
 				robot.currentLane = lane;
 			}
 		}
+		{
+			Robot robot = _clickStart?.collider?.GetComponent<Robot>();
+			Robot sameRobot = _clickEnd?.collider?.GetComponent<Robot>();
+			if (robot != null && sameRobot != null && robot.Equals(sameRobot))
+			{
+				FindObjectOfType<GameUIHandler>().ShowRepairOverlay();
+			}
+		}
 	}
 
 	private RaycastHit CastRay()

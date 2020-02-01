@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,12 @@ public class GameUIHandler : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI _scoreLabel;
 	[SerializeField] private TextMeshProUGUI _timeLabel;
+	[SerializeField] private RepairUIHandler _repairPanel;
+
+	private void Start()
+	{
+		_repairPanel.gameObject.SetActive(false);
+	}
 
 	private void Update()
 	{
@@ -13,6 +20,16 @@ public class GameUIHandler : MonoBehaviour
 		UpdateTimeLabel(GameManager.Instance.remainingTime);
 	}
 
+	public void ShowRepairOverlay()
+	{
+		_repairPanel.gameObject.SetActive(true);
+	}
+	
+	public void HideRepairOverlay()
+	{
+		_repairPanel.gameObject.SetActive(false);
+	}
+	
 	public void GotoMainMenu()
 	{
 		GameManager.Instance.GameOver();
