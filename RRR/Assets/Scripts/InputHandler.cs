@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-
 public class InputHandler : MonoBehaviour
 {
 	private static Camera _mainCamera;
