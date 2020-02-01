@@ -11,6 +11,8 @@ public class GameManager
 	public long LastScore => lastScore;
 	public bool IsGameOver;
 	public float secondsToNextObstacles;
+	
+	private List<Robot> _robots = new List<Robot>();
 
 	public static GameManager Instance
 	{
@@ -39,6 +41,23 @@ public class GameManager
 		{
 			Score = LastScore
 		});
+		
+		_robots.Clear();
+	}
+
+	public void AddRobot(Robot robot)
+	{
+		_robots.Add(robot);
+	}
+
+	public void RemoveRobot(Robot robot)
+	{
+		_robots.Remove(robot);
+	}
+
+	public bool HasRobots()
+	{
+		return _robots.Count > 0;
 	}
 
 	public void AddScore(long scoreToAdd)

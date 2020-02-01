@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,11 +11,23 @@ public class GameHandler : MonoBehaviour
 	[SerializeField] private Transform _obstacleContainer;
 	[SerializeField] private GameObject jetpackGuy = default;
 
+	[SerializeField] private Robot _robotPrefab;
+
+	
 	void Start()
 	{
 		GameManager.Instance.StartNewGame();
 		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
 		allLanes = FindObjectsOfType<Lane>();
+
+		var robot = Instantiate(_robotPrefab);
+		robot.SetStartLane(allLanes[1]);
+		
+		/*var robot2 = Instantiate(_robotPrefab);
+		robot2.SetStartLane(allLanes[1]);
+		
+		var robot3 = Instantiate(_robotPrefab);
+		robot3.SetStartLane(allLanes[2]);*/
 	}
 
 	public void LaunchJetpack()
@@ -30,6 +43,11 @@ public class GameHandler : MonoBehaviour
 		HandleGameTime();
 		AnimateLanes();
 		HandleObstacleSpawning();
+
+		if (!GameManager.Instance.HasRobots())
+		{
+			OnGameOver();
+		}
 	}
 
 	private Random random = new Random();
@@ -63,7 +81,7 @@ public class GameHandler : MonoBehaviour
 
 		if (!GameManager.Instance.IsGameOver && GameManager.Instance.remainingTime <= 0)
 		{
-			OnTimeExpired();
+			OnGameOver();
 		}
 	}
 
@@ -73,7 +91,7 @@ public class GameHandler : MonoBehaviour
 			new Vector2(_laneMaterial.mainTextureOffset.x - Time.deltaTime * (Config.levelRunSpeed / Config.laneTilingMagicNr), 1);
 	}
 
-	private void OnTimeExpired()
+	private void OnGameOver()
 	{
 		GameManager.Instance.GameOver();
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);

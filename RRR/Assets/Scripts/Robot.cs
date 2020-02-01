@@ -19,8 +19,8 @@ public class Robot : MonoBehaviour
 	
 	private void Start()
 	{
-		currentLane = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - transform.position.z))
-			.First();
+		//currentLane = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - transform.position.z))
+		//	.First();
 		_inventory = new List<SparePart>();
 		_bodyParts = new List<BodyPart>();
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY_1));
@@ -31,6 +31,13 @@ public class Robot : MonoBehaviour
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_2));
 
 		_healthBar.text = _health.ToString();
+		
+		GameManager.Instance.AddRobot(this);
+	}
+
+	public void SetStartLane(Lane lane)
+	{
+		currentLane = lane;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -39,8 +46,14 @@ public class Robot : MonoBehaviour
 		if (obstacle != null)
 		{
 			Debug.Log("Collided with obstacle");
-			_health -= 10;
+			_health -= 20;
 			_healthBar.text = _health.ToString();
+
+			if (_health <= 0)
+			{
+				GameManager.Instance.RemoveRobot(this);
+				Destroy(gameObject);
+			}
 		}
 		else
 		{
@@ -51,11 +64,14 @@ public class Robot : MonoBehaviour
 
 	private void Update()
 	{
-		transform.position = Vector3.MoveTowards(
-			transform.position,
-			new Vector3(transform.position.x, transform.position.y, currentLane.transform.position.z),
-			Config.robotRunSpeed * Time.deltaTime
-		);
+		if (currentLane)
+		{
+			transform.position = Vector3.MoveTowards(
+				transform.position,
+				new Vector3(transform.position.x, transform.position.y, currentLane.transform.position.z),
+				Config.robotRunSpeed * Time.deltaTime
+			);
+		}
 	}
 
 	private bool AddCollectibleToInventory(SparePart item)
