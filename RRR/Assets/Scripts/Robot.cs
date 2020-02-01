@@ -28,10 +28,8 @@ public class Robot : MonoBehaviour
 	
 	public List<BodyPart> BodyParts => _bodyParts;
 	
-	private void Start()
+	private void Awake()
 	{
-		//currentLane = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - transform.position.z))
-		//	.First();
 		_bodyParts = new List<BodyPart>();
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY));
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN));
