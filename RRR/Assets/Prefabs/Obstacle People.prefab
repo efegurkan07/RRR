@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8182880966773560597}
   - component: {fileID: 6730717172818270835}
   m_Layer: 0
-  m_Name: PeopleObstacle
+  m_Name: Obstacle People
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Score: 10
+  SparePartHandOut: 0
   DeathFX: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626, type: 3}
 --- !u!65 &6730717172818270835
 BoxCollider:
