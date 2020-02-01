@@ -36,6 +36,8 @@ public class GameManager
 		remainingTime = Config.secondsPerLevel;
 		lastScore = 0;
 		IsGameOver = false;
+
+		CurrentState = GameState.DriveUnicorn;
 	}
 
 	public void GameOver()

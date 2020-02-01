@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
@@ -21,6 +22,11 @@ public class InputHandler : MonoBehaviour
 	
 	private void Update()
 	{
+		if (GameManager.Instance.CurrentState != GameState.DriveUnicorn)
+		{
+			return;
+		}
+		
 		//collect click information 
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -62,6 +68,9 @@ public class InputHandler : MonoBehaviour
 			if (robot != null && lane != null)
 			{
 				robot.currentLane = lane;
+				
+				_clickStart = null;
+				_clickEnd = null;
 			}
 		}
 		{
@@ -69,6 +78,9 @@ public class InputHandler : MonoBehaviour
 			if (doubleClick && robot != null)
 			{
 				FindObjectOfType<GameUIHandler>().ShowRepairOverlay(robot);
+				
+				_clickStart = null;
+				_clickEnd = null;
 			}
 		}
 	}
