@@ -48,7 +48,7 @@ public class InputHandler : MonoBehaviour
 			Robot sameRobot = _clickEnd?.collider?.GetComponent<Robot>();
 			if (robot != null && sameRobot != null && robot.Equals(sameRobot))
 			{
-				FindObjectOfType<GameUIHandler>().ShowRepairOverlay();
+				FindObjectOfType<GameUIHandler>().ShowRepairOverlay(robot);
 			}
 		}
 	}

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class HighscoreHandler : MonoBehaviour
 {
 
-	[SerializeField] private GameObject HighscoreList;
-	[SerializeField] private ScoreListItem ScoreListItem;
+	[SerializeField] private GameObject HighscoreList = default;
+	[SerializeField] private ScoreListItem ScoreListItem = default;
 
 	private void Start()
 	{

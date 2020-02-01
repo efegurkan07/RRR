@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameUIHandler : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI _scoreLabel;
-	[SerializeField] private TextMeshProUGUI _timeLabel;
-	[SerializeField] private RepairUIHandler _repairPanel;
+	[SerializeField] private TextMeshProUGUI _scoreLabel = default;
+	[SerializeField] private TextMeshProUGUI _timeLabel = default;
+	[SerializeField] private RepairUIHandler _repairPanel = default;
 
 	private void Start()
 	{
@@ -20,14 +20,14 @@ public class GameUIHandler : MonoBehaviour
 		UpdateTimeLabel(GameManager.Instance.remainingTime);
 	}
 
-	public void ShowRepairOverlay()
+	public void ShowRepairOverlay(Robot robot)
 	{
-		_repairPanel.gameObject.SetActive(true);
+		_repairPanel.Show(robot);
 	}
 	
 	public void HideRepairOverlay()
 	{
-		_repairPanel.gameObject.SetActive(false);
+		_repairPanel.Close();
 	}
 	
 	public void GotoMainMenu()

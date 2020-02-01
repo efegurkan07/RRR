@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverHandler : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI _lastScoreLabel;
+	[SerializeField] private TextMeshProUGUI _lastScoreLabel = default;
 
 	private void Start()
 	{

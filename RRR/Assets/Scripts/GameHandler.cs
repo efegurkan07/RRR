@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-	[SerializeField] private Material laneMaterial;
+	[SerializeField] private Material laneMaterial = default;
 
 	void Start()
 	{
