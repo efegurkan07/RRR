@@ -9,7 +9,20 @@ public class Robot : MonoBehaviour
 {
 	[SerializeField] private GameObject _deathAnimation;
 	[SerializeField] private TextMeshPro _healthBar;
-	private int _health = 100;
+
+	private float Health
+	{
+		get
+		{
+			float health = 0;
+			foreach (BodyPart part in BodyParts)
+			{
+				health += part.Health;
+			}
+
+			return health / BodyParts.Count;
+		}
+	}
 	
 	public Lane currentLane; 
 	List<SparePart> _inventory; 
@@ -25,16 +38,19 @@ public class Robot : MonoBehaviour
 		//	.First();
 		_inventory = new List<SparePart>();
 		_bodyParts = new List<BodyPart>();
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY_2));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN_2));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_1));
-		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_2));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.BODY));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN));
+		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL));
 
-		_healthBar.text = _health.ToString();
+		_healthBar.text = Health.ToString();
 		
 		GameManager.Instance.AddRobot(this);
+		
+		// TEST
+		_inventory.Add(new SparePart(SparePart.SparePartType.RED));
+		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
+		_inventory.Add(new SparePart(SparePart.SparePartType.YELLOW));
+		_inventory.Add(new SparePart(SparePart.SparePartType.BLUE));
 	}
 
 	public void SetStartLane(Lane lane)
@@ -70,11 +86,13 @@ public class Robot : MonoBehaviour
 
 		if (damage > 0)
 		{
+			foreach (BodyPart part in BodyParts)
+			{ 
+				part.GetDamaged(damage);
+			}
+			_healthBar.text = Health.ToString();
 
-			_health -= obstacle.GetDamage();
-			_healthBar.text = _health.ToString();
-
-			if (_health <= 0)
+			if (Health <= 0)
 			{
 				GameManager.Instance.RemoveRobot(this);
 

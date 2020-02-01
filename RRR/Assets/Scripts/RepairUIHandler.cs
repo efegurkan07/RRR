@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class RepairUIHandler : MonoBehaviour
 { 
-	Robot _robot;
+	public static Robot robot;
 	List<InventorySlot> _inventory; 
 	List<BodyPartSlot> _bodyParts;
 	
@@ -27,7 +28,7 @@ public class RepairUIHandler : MonoBehaviour
 	public void Show(Robot robot)
 	{
 		gameObject.SetActive(true);
-		_robot = robot;
+		RepairUIHandler.robot = robot;
 		PopulateInventory();
 		UpdateHealth();
 	}
@@ -39,10 +40,16 @@ public class RepairUIHandler : MonoBehaviour
 
 	void PopulateInventory()
 	{
-		int upperBound = Mathf.Min(_robot.Inventory.Count, _inventory.Count);
-		for (int i = 0; i < upperBound; i++)
+		int i;
+		int upperBound = Mathf.Min(robot.Inventory.Count, _inventory.Count);
+		for (i = 0; i < upperBound; i++)
 		{
-			_inventory[i].FillSlot(_robot.Inventory[i]);
+			_inventory[i].FillSlot(robot.Inventory[i]);
+		}
+
+		for (; i < _inventory.Count; i++)
+		{
+			_inventory[i].FillSlot(SparePart.EMPTY);
 		}
 	}
 
@@ -50,7 +57,12 @@ public class RepairUIHandler : MonoBehaviour
 	{
 		foreach (BodyPartSlot slot in _bodyParts)
 		{
-			slot.Initialize((from bodyPart in _robot.BodyParts where bodyPart.Type == slot.BodyPartType select bodyPart).First());
+			slot.Initialize((from bodyPart in robot.BodyParts where bodyPart.Type == slot.BodyPartType select bodyPart).First());
 		}
+	}
+
+	private void Update()
+	{
+		PopulateInventory();
 	}
 }

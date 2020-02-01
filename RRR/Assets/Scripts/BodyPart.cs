@@ -7,17 +7,14 @@ public class BodyPart
 {
     public enum BodyPartType
     {
-        HORN_1,
-        HORN_2,
-        BODY_1,
-        BODY_2,
-        TAIL_1,
-        TAIL_2
+        HORN,
+        BODY,
+        TAIL
     }
 
-    private float _health;
+    private int _health;
 
-    public float Health
+    public int Health
     {
         get { return _health; }
     }
@@ -33,12 +30,19 @@ public class BodyPart
     {
         _type = type;
         _health = Config.initialBodyPartHealth;
+        _lastSparePartUsed = SparePart.EMPTY;
     }
 
     public void Repair(SparePart sparePart)
     {
         _lastSparePartUsed = sparePart;
+        RepairUIHandler.robot.Inventory.Remove(sparePart);
         //TODO Update Health
-        _health += 100f;
+        _health += (int) sparePart.Type;
+    }
+
+    public void GetDamaged(int damage)
+    {
+        _health -= damage;
     }
 }
