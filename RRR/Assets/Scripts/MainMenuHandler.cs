@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Linq;
 using DefaultNamespace;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuHandler : MonoBehaviour
 {
@@ -10,6 +14,31 @@ public class MainMenuHandler : MonoBehaviour
 	private void Awake()
 	{
 		_storyWasSeen = PlayerPrefs.GetInt("story_was_seen", 0) == 1;
+	}
+
+	private void Start()
+	{
+		var buttons = FindObjectsOfType<Button>();
+		foreach (var button in buttons)
+		{
+			EventTrigger.Entry eventtype = new EventTrigger.Entry();
+			eventtype.eventID = EventTriggerType.PointerEnter;
+			eventtype.callback.AddListener((eventData) =>
+			{
+				var textMP = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+				if (!textMP.text.StartsWith("£")) textMP.text = "£" + textMP.text;
+			});
+			button.gameObject.AddComponent<EventTrigger>().triggers.Add(eventtype);
+			
+			eventtype = new EventTrigger.Entry();
+			eventtype.eventID = EventTriggerType.PointerExit;
+			eventtype.callback.AddListener((eventData) =>
+			{
+				var textMP = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+				if (textMP.text.StartsWith("£")) textMP.text = textMP.text.Substring(1);
+			});
+			button.gameObject.AddComponent<EventTrigger>().triggers.Add(eventtype);
+		}
 	}
 
 	public void GotoGame()
