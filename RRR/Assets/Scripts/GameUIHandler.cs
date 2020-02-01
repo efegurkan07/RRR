@@ -29,6 +29,11 @@ public class GameUIHandler : MonoBehaviour
 	{
 		_repairPanel.Close();
 	}
+
+	public void LaunchJetpack()
+	{
+		FindObjectOfType<GameHandler>().LaunchJetpack();
+	}
 	
 	public void GotoMainMenu()
 	{

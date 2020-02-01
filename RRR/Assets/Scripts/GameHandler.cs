@@ -8,12 +8,21 @@ public class GameHandler : MonoBehaviour
 	[SerializeField] private Material _laneMaterial;
 	[SerializeField] private GameObject _obstaclePrefab;
 	[SerializeField] private Transform _obstacleContainer;
+	[SerializeField] private GameObject jetpackGuy = default;
 
 	void Start()
 	{
 		GameManager.Instance.StartNewGame();
 		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
 		allLanes = FindObjectsOfType<Lane>();
+	}
+
+	public void LaunchJetpack()
+	{
+		Robot robot = FindObjectOfType<Robot>();
+		var poorGuy = Instantiate(jetpackGuy);
+		poorGuy.transform.position = robot.transform.position;
+		poorGuy.GetComponent<Animator>().SetTrigger("HeavensCalling");
 	}
 
 	private void Update()
