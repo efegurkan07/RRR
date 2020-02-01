@@ -14,12 +14,25 @@ public class BackgroundHandler : MonoBehaviour
 		_skylineMaterial.mainTextureOffset =
 			new Vector2((_skylineMaterial.mainTextureOffset.x + Time.deltaTime * Config.skylineRunSpeed) % 1, 1);
 
-		_spawnedBuildings.ForEach(b => b.localPosition += Vector3.left * Config.levelRunSpeed * Time.deltaTime);
+		for (var i = 0; i < _spawnedBuildings.Count; i++)
+		{
+			var spawnedBuilding = _spawnedBuildings[i];
+			if (spawnedBuilding == null)
+			{
+				_spawnedBuildings.RemoveAt(i);
+				i--;
+			}
+			else
+			{
+				spawnedBuilding.localPosition += Vector3.left * Config.levelRunSpeed * Time.deltaTime;
+			}
+		}
 
 		_secondsToNextBuilding -= Time.deltaTime;
 		if (_secondsToNextBuilding <= 0)
 		{
-			_spawnedBuildings.Add(Instantiate(_buildingPrefabs[Random.Range(0, _buildingPrefabs.Length)], _buildingsContainer).transform);
+			_spawnedBuildings.Add(Instantiate(_buildingPrefabs[Random.Range(0, _buildingPrefabs.Length)],
+				_buildingsContainer).transform);
 			_secondsToNextBuilding = Random.Range(0.3f, 1.5f) * Config.levelRunSpeed;
 		}
 	}
