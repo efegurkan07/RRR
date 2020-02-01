@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
@@ -6,7 +7,12 @@ public class Obstacle : MonoBehaviour
 	[SerializeField] private int Score = 0;
 	[SerializeField] private SparePart.SparePartType SparePartHandOut = SparePart.SparePartType.EMPTY;
 	[SerializeField] private GameObject DeathFX;
-	
+
+	private void Start()
+	{
+		gameObject.AddComponent<Voidable>();
+	}
+
 	private void Update()
 	{
 		transform.position += Vector3.left * Config.levelRunSpeed * Time.deltaTime;
