@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -7,31 +8,17 @@ public class InventorySlot : MonoBehaviour
 
     public SparePart SparePart => _sparePart;
 
-    private SpriteRenderer _sprite;
+    private Image _image;
 
     private void Awake()
     {
-        _sprite = GetComponent<SpriteRenderer>();
+        _image = GetComponent<Image>();
     }
 
     public void FillSlot(SparePart sparePart)
     {
         _sparePart = sparePart;
         //TODO Assign the related sprite
-        switch (SparePart.Color)
-        {
-            case SparePart.SparePartColor.RED :
-                _sprite.color = Color.red;
-                break;
-            case SparePart.SparePartColor.BLUE :
-                _sprite.color = Color.blue;
-                break;
-            case SparePart.SparePartColor.YELLOW :
-                _sprite.color = Color.yellow;
-                break;
-            default:
-                _sprite.color = Color.gray;
-                break;
-        }   
+        _image.color = SparePart.GetColor(sparePart.Type);
     }
 }
