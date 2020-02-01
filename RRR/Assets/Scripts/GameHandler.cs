@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-	private float _remainingTime;
-	private bool _isGameOver;
+	[SerializeField] private Material laneMaterial;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		GameManager.Instance.StartNewGame();
@@ -21,6 +19,14 @@ public class GameHandler : MonoBehaviour
 		{
 			OnTimeExpired();
 		}
+
+		AnimateLanes();
+	}
+
+	private void AnimateLanes()
+	{
+		laneMaterial.mainTextureOffset =
+			new Vector2(laneMaterial.mainTextureOffset.x - Time.deltaTime * Config.laneRunSpeed, 1);
 	}
 
 	private void OnTimeExpired()

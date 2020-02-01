@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17703adb29b2a4af19ea8509112bb83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laneMaterial: {fileID: 2100000, guid: 6307488b683fd4907b778db58ee6449b, type: 2}
 --- !u!4 &1343185631
 Transform:
   m_ObjectHideFlags: 0
