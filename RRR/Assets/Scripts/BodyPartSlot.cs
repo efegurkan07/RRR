@@ -1,13 +1,12 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using Image = UnityEngine.UI.Image;
 
 public class BodyPartSlot : MonoBehaviour, IDropHandler
 {
     private Image _image;
-
+    private HealthBarHandler _healthBarHandler;
+    
     [SerializeField]
     private BodyPart.BodyPartType type;
 
@@ -36,6 +35,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     public void Awake()
     {
         _image = GetComponent<Image>();
+        _healthBarHandler = GetComponentInChildren<HealthBarHandler>();
     }
 
     public void Initialize(BodyPart bodyPart)
@@ -63,6 +63,10 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
             RepairUIHandler.robot.UpdateHealth();
             inventorySlot.FillSlot(SparePart.EMPTY);
         }
+    }
 
+    void Update()
+    {
+        _healthBarHandler.SetHealth(_bodyPart.Health);
     }
 }
