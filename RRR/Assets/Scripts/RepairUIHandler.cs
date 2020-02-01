@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 
 public class RepairUIHandler : MonoBehaviour
 { 
@@ -19,9 +18,9 @@ public class RepairUIHandler : MonoBehaviour
 			_inventory.Add(transform.GetChild(0).GetChild(i).gameObject.GetComponent<InventorySlot>());
 		}
 
-		for (int i = 1; i < Config.bodyPartCount; i++)
+		for (int i = 0; i < Config.bodyPartCount ; i++)
 		{
-			_bodyParts.Add(transform.GetChild(1).GetChild(i).GetComponent<BodyPartSlot>());
+			_bodyParts.Add(transform.GetChild(1).GetChild(i + 1).GetComponent<BodyPartSlot>());
 		}
 	}
 
@@ -40,7 +39,8 @@ public class RepairUIHandler : MonoBehaviour
 
 	void PopulateInventory()
 	{
-		for (int i = 0; i < _inventory.Count; i++)
+		int upperBound = Mathf.Min(_robot.Inventory.Count, _inventory.Count);
+		for (int i = 0; i < upperBound; i++)
 		{
 			_inventory[i].FillSlot(_robot.Inventory[i]);
 		}
