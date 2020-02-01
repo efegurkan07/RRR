@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,10 @@ public class HighscoreHandler : MonoBehaviour
 
 	private void Start()
 	{
-		foreach (var score in GameManager.Instance.scores)
+		foreach (var score in GameManager.Instance.scores.OrderByDescending(x => x.Score))
 		{
 			var listItem = Instantiate(ScoreListItem, HighscoreList.transform);
-			listItem.SetScore(score);
+			listItem.SetScore(score.Score);
 		}
 	}
 

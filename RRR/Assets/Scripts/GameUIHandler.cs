@@ -15,7 +15,8 @@ public class GameUIHandler : MonoBehaviour
 
 	public void GotoMainMenu()
 	{
-		SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+		GameManager.Instance.GameOver();
+		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
 	}
 
 	public void AddScore()

@@ -17,7 +17,7 @@ public class GameHandler : MonoBehaviour
 	{
 		GameManager.Instance.remainingTime -= Time.deltaTime;
 
-		if (!_isGameOver && GameManager.Instance.remainingTime <= 0)
+		if (!GameManager.Instance.IsGameOver && GameManager.Instance.remainingTime <= 0)
 		{
 			OnTimeExpired();
 		}
@@ -25,7 +25,6 @@ public class GameHandler : MonoBehaviour
 
 	private void OnTimeExpired()
 	{
-		_isGameOver = true;
 		GameManager.Instance.GameOver();
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
 	}

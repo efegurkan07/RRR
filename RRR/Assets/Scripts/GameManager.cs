@@ -6,9 +6,10 @@ public class GameManager
 
 	public float remainingTime;
 	public long lastScore;
-	public List<long> scores = new List<long>();
+	public List<HighScoreEntry> scores = new List<HighScoreEntry>();
 
 	public long LastScore => lastScore;
+	public bool IsGameOver;
 
 	public static GameManager Instance
 	{
@@ -27,11 +28,16 @@ public class GameManager
 	{
 		remainingTime = Config.secondsPerLevel;
 		lastScore = 0;
+		IsGameOver = false;
 	}
 
 	public void GameOver()
 	{
-		scores.Add(lastScore);
+		IsGameOver = true;
+		scores.Add(new HighScoreEntry()
+		{
+			Score = LastScore
+		});
 	}
 
 	public void AddScore(long scoreToAdd)
