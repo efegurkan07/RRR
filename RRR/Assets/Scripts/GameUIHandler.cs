@@ -34,8 +34,8 @@ public class GameUIHandler : MonoBehaviour
     private void UpdateTimeLabel(float remainingTime)
     {
         int minutes = (int)(remainingTime / 60);
-        var seconds = (int)Math.Ceiling(remainingTime - minutes * 60);
+        var seconds = (remainingTime % 60);
 
-        _timeLabel.text = string.Format("{0}:{1:00}", minutes, seconds);
+        _timeLabel.text = string.Format("{0}:{1:00.0}", minutes, seconds);
     }
 }

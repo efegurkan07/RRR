@@ -5,7 +5,7 @@ public class GameManager
 
     private long _score;
 
-    public readonly float TimePerLevel = 59;
+    public readonly float TimePerLevel = 65;
 
     public long Score => _score;
 
