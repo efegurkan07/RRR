@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+	[SerializeField] private GameObject _deathAnimation;
 	[SerializeField] private TextMeshPro _healthBar;
 	private int _health = 100;
 	
@@ -45,13 +46,19 @@ public class Robot : MonoBehaviour
 		var obstacle = other.GetComponent<Obstacle>();
 		if (obstacle != null)
 		{
-			Debug.Log("Collided with obstacle");
-			_health -= 20;
+			_health -= obstacle.GetDamage();
 			_healthBar.text = _health.ToString();
 
 			if (_health <= 0)
 			{
 				GameManager.Instance.RemoveRobot(this);
+
+				if (_deathAnimation != null)
+				{
+					var anim = Instantiate(_deathAnimation);
+					_deathAnimation.transform.position = transform.position;
+				}
+				
 				Destroy(gameObject);
 			}
 		}
