@@ -19,7 +19,6 @@ public class Robot : MonoBehaviour
 			{
 				health += part.Health;
 			}
-
 			return health / BodyParts.Count;
 		}
 	}
@@ -124,8 +123,13 @@ public class Robot : MonoBehaviour
 
 	private bool AddSparePartToInventory(SparePart item)
 	{
-		if (_inventory.Count >= Config.inventoryCapacity) return false;
+		if (_inventory.Count >= Config.inventoryCapacity || item.Type == SparePart.SparePartType.EMPTY) return false;
 		_inventory.Add(item);
 		return true;
+	}
+
+	public void UpdateHealth()
+	{
+		_healthBar.text = Health.ToString();
 	}
 }

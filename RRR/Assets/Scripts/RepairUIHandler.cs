@@ -43,11 +43,12 @@ public class RepairUIHandler : MonoBehaviour
 
 	void PopulateInventory()
 	{
-		int i;
+		int i = 0;
 		int upperBound = Mathf.Min(robot.Inventory.Count, _inventory.Count);
-		for (i = 0; i < upperBound; i++)
+		foreach(SparePart part in robot.Inventory)
 		{
-			_inventory[i].FillSlot(robot.Inventory[i]);
+			_inventory[i].FillSlot(part);
+			i++;
 		}
 
 		for (; i < _inventory.Count; i++)
@@ -56,7 +57,7 @@ public class RepairUIHandler : MonoBehaviour
 		}
 	}
 
-	void UpdateHealth()
+	public void UpdateHealth()
 	{
 		foreach (BodyPartSlot slot in _bodyParts)
 		{
