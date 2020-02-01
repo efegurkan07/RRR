@@ -1,13 +1,16 @@
 ﻿
+using System.Collections.Generic;
+
 public class GameManager
 {
     private static GameManager _instance;
 
-    private long _score;
+    private long _lastScore;
+    private List<long> _scores = new List<long>();
 
-    public readonly float TimePerLevel = 65;
+    public readonly float TimePerLevel = 10;
 
-    public long Score => _score;
+    public long LastScore => _lastScore;
 
     public static GameManager Instance
     {
@@ -22,8 +25,18 @@ public class GameManager
         }
     }
 
+    public void StartNewGame()
+    {
+        _lastScore = 0;
+    }
+
+    public void GameOver()
+    {
+        _scores.Add(_lastScore);
+    }
+    
     public long AddScore(long scoreToAdd)
     {
-        return _score += scoreToAdd;
+        return _lastScore += scoreToAdd;
     }
 }

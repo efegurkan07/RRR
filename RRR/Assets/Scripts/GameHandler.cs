@@ -11,6 +11,8 @@ public class GameHandler : MonoBehaviour
     {
         _remainingTime = GameManager.Instance.TimePerLevel;
         SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
+        
+        GameManager.Instance.StartNewGame();
     }
 
     private void LateUpdate()
@@ -35,6 +37,7 @@ public class GameHandler : MonoBehaviour
 
     public void OnTimeExpired()
     {
+        GameManager.Instance.GameOver();
         SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
     }
 }

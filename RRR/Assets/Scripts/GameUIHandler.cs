@@ -17,7 +17,7 @@ public class GameUIHandler : MonoBehaviour
 
     private void Update()
     {
-        _scoreLabel.text = GameManager.Instance.Score.ToString();
+        _scoreLabel.text = GameManager.Instance.LastScore.ToString();
         UpdateTimeLabel(_gameHandler.GetRemainingTime());
     }
 
