@@ -1,9 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+	[SerializeField] private TextMeshPro _healthBar;
+	private int _health = 100;
+	
 	public Lane currentLane; 
 	List<SparePart> _inventory; 
 	List<BodyPart> _bodyParts;
@@ -24,7 +29,25 @@ public class Robot : MonoBehaviour
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.HORN_2));
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_1));
 		_bodyParts.Add(new BodyPart(BodyPart.BodyPartType.TAIL_2));
+
+		_healthBar.text = _health.ToString();
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var obstacle = other.GetComponent<Obstacle>();
+		if (obstacle != null)
+		{
+			Debug.Log("Collided with obstacle");
+			_health -= 10;
+			_healthBar.text = _health.ToString();
+		}
+		else
+		{
+			Debug.Log("Collided but not obstacle");
+		}
+	}
+
 
 	private void Update()
 	{
