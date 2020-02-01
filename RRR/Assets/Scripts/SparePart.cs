@@ -33,11 +33,11 @@ public class SparePart
     {
         switch (sparePartType)
         {
-            case SparePartType.RED :
+            case SparePartType.RED : // Chewing Gum
                 return Color.red;
-            case SparePartType.BLUE :
+            case SparePartType.BLUE : // Nut
                 return Color.blue;
-            case SparePartType.YELLOW :
+            case SparePartType.YELLOW : // Gear
                 return Color.yellow;
             default:
                 return Color.grey;

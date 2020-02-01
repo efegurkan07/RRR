@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -19,12 +18,12 @@ public class RepairUIHandler : MonoBehaviour
 		
 		for (int i = 0; i < Config.bodyPartCount ; i++)
 		{
-			_bodyParts.Add(transform.GetChild(0).GetChild(i + 1).GetComponent<BodyPartSlot>());
+			_bodyParts.Add(transform.GetChild(0).GetChild(i + 1).GetComponentInChildren<BodyPartSlot>());
 		}
 		
 		for (int i = 0; i < Config.inventoryCapacity; i++)
 		{
-			_inventory.Add(transform.GetChild(1).GetChild(i).gameObject.GetComponent<InventorySlot>());
+			_inventory.Add(transform.GetChild(1).GetChild(i).GetComponentInChildren<InventorySlot>());
 		}
 	}
 
