@@ -2,7 +2,7 @@ public static class Config
 {
 	public const float rightLineLimit = 20;
 	public const float levelRunSpeed = 3f;
-	public static float skylineRunSpeed = 0.2f;
+	public static float skylineRunSpeed = 0.15f;
 	public const int bodyPartCount = 6;
 	public const float initialBodyPartHealth = 100;
 	public const float secondsPerLevel = 10000f;

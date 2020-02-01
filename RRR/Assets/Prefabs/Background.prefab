@@ -201,4 +201,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c143e7d2112497b86fed35040ff700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skylineMaterial: {fileID: 0}
+  _skylineMaterial: {fileID: 2100000, guid: 91ff83661e06949c88a7167f9f0eb7ff, type: 2}

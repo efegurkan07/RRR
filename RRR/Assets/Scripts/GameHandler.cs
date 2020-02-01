@@ -88,12 +88,17 @@ public class GameHandler : MonoBehaviour
 	private void AnimateLanes()
 	{
 		_laneMaterial.mainTextureOffset =
-			new Vector2(_laneMaterial.mainTextureOffset.x - Time.deltaTime * (Config.levelRunSpeed / Config.laneTilingMagicNr), 1);
+			new Vector2((_laneMaterial.mainTextureOffset.x - Time.deltaTime * (Config.levelRunSpeed / Config.laneTilingMagicNr)) % 1, 1);
 	}
 
 	private void OnGameOver()
 	{
 		GameManager.Instance.GameOver();
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
+	}
+
+	private void OnDestroy()
+	{
+		_laneMaterial.mainTextureOffset = Vector2.one;
 	}
 }
