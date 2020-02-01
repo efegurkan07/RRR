@@ -2,7 +2,11 @@
 public class GameManager
 {
     private static GameManager _instance;
-    
+
+    private long _score;
+
+    public long Score => _score;
+
     public static GameManager Instance
     {
         get
@@ -16,8 +20,8 @@ public class GameManager
         }
     }
 
-    public void AnyMethod(int property)
+    public long AddScore(long scoreToAdd)
     {
-        
+        return _score += scoreToAdd;
     }
 }

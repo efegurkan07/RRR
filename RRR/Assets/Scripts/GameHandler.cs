@@ -10,4 +10,9 @@ public class GameHandler : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
     }
+
+    public void AddScore(long scoreToAdd)
+    {
+        GameManager.Instance.AddScore(scoreToAdd);
+    }
 }
