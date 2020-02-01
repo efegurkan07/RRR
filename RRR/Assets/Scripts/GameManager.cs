@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace;
 
 public class GameManager
@@ -70,5 +71,13 @@ public class GameManager
 	public void AddScore(long scoreToAdd)
 	{
 		lastScore += scoreToAdd;
+	}
+
+	public void DamageAllRobots(int damage)
+	{
+		foreach (Robot robot in _robots)
+		{
+			robot.GetDamaged(damage);
+		}
 	}
 }

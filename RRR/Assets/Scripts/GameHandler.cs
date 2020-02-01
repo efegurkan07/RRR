@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -38,6 +40,7 @@ public class GameHandler : MonoBehaviour
 		var robot = Instantiate(_robotPrefab);
 		robot.SetStartLane(allLanes[1]);
 		
+		StartCoroutine(DamageOverTime());
 		/*var robot2 = Instantiate(_robotPrefab);
 		robot2.SetStartLane(allLanes[1]);
 		
@@ -141,10 +144,20 @@ public class GameHandler : MonoBehaviour
 	{
 		GameManager.Instance.GameOver();
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
+		StopCoroutine(DamageOverTime());
 	}
 
 	private void OnDestroy()
 	{
 		_laneMaterial.mainTextureOffset = Vector2.one;
+	}
+	
+	IEnumerator DamageOverTime()
+	{
+		while (true)
+		{
+			GameManager.Instance.DamageAllRobots(Config.damageOverTime);
+			yield return Config.damageOverTimePeriod;
+		}
 	}
 }

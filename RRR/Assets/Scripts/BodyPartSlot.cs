@@ -4,6 +4,10 @@ using Image = UnityEngine.UI.Image;
 
 public class BodyPartSlot : MonoBehaviour, IDropHandler
 {
+    [SerializeField] Sprite gum;
+    [SerializeField] Sprite nut;
+    [SerializeField] Sprite gear;
+
     private Image _image;
     private HealthBarHandler _healthBarHandler;
     
@@ -22,19 +26,19 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     float Health => _bodyPart.Health;
 
-    SparePart.SparePartType SparePartType
-    {
-        get => _sparePartType; 
-        set
-        {
-            _sparePartType = value;
-            _image.color = SparePart.GetColor(value);
-        }
-    }
+    // SparePart.SparePartType SparePartType
+    // {
+    //     get => _sparePartType; 
+    //     set
+    //     {
+    //         _sparePartType = value;
+    //         _image.color = SparePart.GetColor(value);
+    //     }
+    // }
 
     public void Awake()
     {
-        _image = GetComponent<Image>();
+        _image = transform.GetChild(1).GetComponent<Image>();
         _healthBarHandler = GetComponentInChildren<HealthBarHandler>();
     }
 
@@ -42,14 +46,16 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     {
         type = bodyPart.Type;
         _bodyPart = bodyPart;
-        SparePartType = SparePart.SparePartType.EMPTY;
+        // SparePartType = SparePart.SparePartType.EMPTY;
+        _image.enabled = false;
     }
     
     void Repair(SparePart sparePart)
     {
         _sparePartType = sparePart.Type;
         Debug.Log("Repairing " + type + " with " + _sparePartType);
-        _image.color = sparePart.GetColor();
+        _image.sprite = GetSprite(sparePart);
+        _image.enabled = true;
         _bodyPart.Repair(sparePart);
     }
 
@@ -68,5 +74,20 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     void Update()
     {
         _healthBarHandler.SetHealth(_bodyPart.Health);
+    }
+    
+    public Sprite GetSprite(SparePart part)
+    {
+        switch (part.Type)
+        {
+            case SparePart.SparePartType.RED:
+                return gum;
+            case SparePart.SparePartType.BLUE:
+                return nut;
+            case SparePart.SparePartType.YELLOW:
+                return gear;
+            default:
+                return null;
+        }
     }
 }

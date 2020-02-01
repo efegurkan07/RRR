@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class Config
 {
 	public const float rightLineLimit = 20;
@@ -6,6 +8,7 @@ public static class Config
 	public static float maximumHealth = 110f;
 	public static int yellowHealthIndicatorValue = 70;
 	public static int redHealthIndicatorValue = 30;
+	public static int damageOverTime = 1;
 	public const int bodyPartCount = 3;
 	public const int initialBodyPartHealth = 100;
 	public const float secondsPerLevel = 10000f;
@@ -13,4 +16,5 @@ public static class Config
 	//used depending on lane texture tiling
 	public const float laneTilingMagicNr = 13.5f; //yes, this is a proper balancing calculation :P
 	public const float robotRunSpeed = 10f * (levelRunSpeed / 7.75f); //this too!
+	public static WaitForSeconds damageOverTimePeriod = new WaitForSeconds(1f);
 }

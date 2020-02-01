@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -16,6 +14,9 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     private Image _image;
     public SparePart SparePart => _sparePart;
 
+    [SerializeField] Sprite gum;
+    [SerializeField] Sprite nut;
+    [SerializeField] Sprite gear;
 
     private void Awake()
     {
@@ -28,7 +29,16 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         _sparePart = sparePart;
         //TODO Assign the related sprite, name , whatever
-        _image.color = sparePart.GetColor();
+        Sprite sprite = GetSprite();
+        if (sprite == null)
+        {
+            _image.enabled = false;
+        }
+        else
+        {
+            _image.enabled = true;
+            _image.sprite = sprite;
+        }
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -54,6 +64,21 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         else
         {
             eventData.pointerDrag = null;
+        }
+    }
+
+    Sprite GetSprite()
+    {
+        switch (_sparePart.Type)
+        {
+            case SparePart.SparePartType.RED:
+                return gum;
+            case SparePart.SparePartType.BLUE:
+                return nut;
+            case SparePart.SparePartType.YELLOW:
+                return gear;
+            default:
+                return null;
         }
     }
 }

@@ -77,10 +77,7 @@ public class Robot : MonoBehaviour
 		if (damage > 0)
 		{
 			Camera.main.GetComponent<ShakeBehavior>().TriggerShake(0.2f, 0.3f);
-			foreach (BodyPart part in BodyParts)
-			{ 
-				part.GetDamaged(damage);
-			}
+			GetDamaged(damage);
 
 			if (Health <= 0)
 			{
@@ -131,5 +128,13 @@ public class Robot : MonoBehaviour
 	public void UpdateHealth()
 	{
 		_healthBar.text = Health.ToString("0") + "%";
+	}
+
+	public void GetDamaged(int damage)
+	{
+		foreach (BodyPart part in BodyParts)
+		{ 
+			part.GetDamaged(damage);
+		}
 	}
 }
