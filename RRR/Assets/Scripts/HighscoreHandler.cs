@@ -10,7 +10,7 @@ public class HighscoreHandler : MonoBehaviour
 
 	private void Start()
 	{
-		foreach (var score in GameManager.Instance.GetScores())
+		foreach (var score in GameManager.Instance.scores)
 		{
 			var listItem = Instantiate(ScoreListItem, HighscoreList.transform);
 			listItem.SetScore(score);

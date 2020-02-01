@@ -9,33 +9,21 @@ public class GameHandler : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		_remainingTime = GameManager.Instance.TimePerLevel;
-		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
-
 		GameManager.Instance.StartNewGame();
+		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
 	}
 
-	private void LateUpdate()
+	private void Update()
 	{
-		_remainingTime -= Time.deltaTime;
+		GameManager.Instance.remainingTime -= Time.deltaTime;
 
-		if (!_isGameOver && _remainingTime <= 0)
+		if (!_isGameOver && GameManager.Instance.remainingTime <= 0)
 		{
 			OnTimeExpired();
 		}
 	}
 
-	public void AddScore(long scoreToAdd)
-	{
-		GameManager.Instance.AddScore(scoreToAdd);
-	}
-
-	public float GetRemainingTime()
-	{
-		return _remainingTime;
-	}
-
-	public void OnTimeExpired()
+	private void OnTimeExpired()
 	{
 		_isGameOver = true;
 		GameManager.Instance.GameOver();
