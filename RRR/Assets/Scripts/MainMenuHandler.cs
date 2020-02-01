@@ -17,4 +17,9 @@ public class MainMenuHandler : MonoBehaviour
 	{
 		SceneManager.LoadSceneAsync("Highscore", LoadSceneMode.Single);
 	}
+	
+	public void GotoStory()
+	{
+		SceneManager.LoadSceneAsync("Story", LoadSceneMode.Single);
+	}
 }
