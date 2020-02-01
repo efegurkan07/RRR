@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3857678793685324591}
   - component: {fileID: 114332922875022822}
   m_Layer: 0
-  m_Name: Obstacle 1
+  m_Name: Obstacle Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,4 +137,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   Score: 0
+  SparePartHandOut: 0
   DeathFX: {fileID: 0}

@@ -219,9 +219,9 @@ MonoBehaviour:
   volumeLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  stopNaNPropagation: 1
+  stopNaNPropagation: 0
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -257,7 +257,7 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
+  m_ShowToolkit: 1
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719286555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.98, y: 3.109, z: 3.3}
+  m_LocalPosition: {x: -19.99, y: 3.109, z: 3.3}
   m_LocalScale: {x: 2.2687, y: 10.336336, z: 19.020805}
   m_Children: []
   m_Father: {fileID: 0}
@@ -603,6 +603,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
+        type: 3}
+      propertyPath: _buildingPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
+        type: 3}
+      propertyPath: _buildingPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1046929310624307452, guid: 28f14364b22ae4a529044484dfc4a3c0,
+        type: 3}
     - target: {fileID: 5655924853193507394, guid: 93221f38ea370448ba799460359cb453,
         type: 3}
       propertyPath: m_LocalPosition.x
