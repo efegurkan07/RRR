@@ -1,22 +1,29 @@
-﻿using UnityEngine;
-using Image = UnityEngine.UI.Image;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class HealthBarHandler : MonoBehaviour
 {
-    private Image healthBar;
-    private RectTransform healthBarRectTransform;
-    
-    private float initialHeight;
+    private SpriteRenderer _healthBarSprite;
+
+    private Transform _healthBarTransform;
+
+    private float _initialXScale;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        healthBarRectTransform = (RectTransform)transform.GetChild(0);
-        healthBar = healthBarRectTransform.GetComponent<Image>();
-        initialHeight = healthBarRectTransform.rect.height;
+        _healthBarTransform = transform.GetChild(1);
+        _initialXScale = _healthBarTransform.localScale.x;
+        _healthBarSprite = _healthBarTransform.GetComponent<SpriteRenderer>();
     }
 
-    public void SetHealth(int health)
+    // Update is called once per frame
+    public void UpdateHealth(float health)
     {
+        Vector3 localScale = _healthBarTransform.localScale;
+        localScale = new Vector3(_initialXScale * (health / Config.initialBodyPartHealth), localScale.y, localScale.z);
+        _healthBarTransform.localScale = localScale;
+        
         if (health > Config.yellowHealthIndicatorValue)
         {
             SetColor(Color.green);
@@ -29,12 +36,10 @@ public class HealthBarHandler : MonoBehaviour
         {
             SetColor(Color.red);
         }
-
-        healthBarRectTransform.localScale = new Vector3(1, (float) health / Config.initialBodyPartHealth, 1);
     }
 
     void SetColor(Color c)
     {
-        healthBar.color = c;
+        _healthBarSprite.color = c;
     }
 }
