@@ -636,7 +636,8 @@ MonoBehaviour:
   _obstaclePrefab: {fileID: 6319437090761705787, guid: 5a44bbd20db344229b9183e206dada48,
     type: 3}
   _obstacleContainer: {fileID: 222354159}
-  jetpackGuy: {fileID: 0}
+  jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
+    type: 3}
 --- !u!4 &1343185631
 Transform:
   m_ObjectHideFlags: 0
