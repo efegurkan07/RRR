@@ -86,6 +86,7 @@ public class Robot : MonoBehaviour
 
 		if (damage > 0)
 		{
+			Camera.main.GetComponent<ShakeBehavior>().TriggerShake(0.2f, 0.3f);
 			foreach (BodyPart part in BodyParts)
 			{ 
 				part.GetDamaged(damage);
