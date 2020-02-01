@@ -60,6 +60,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         {
             SparePart part = inventorySlot.SparePart;
             Repair(part);
+            RepairUIHandler.robot.UpdateHealth();
             inventorySlot.FillSlot(SparePart.EMPTY);
         }
 

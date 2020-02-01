@@ -19,7 +19,6 @@ public class Robot : MonoBehaviour
 			{
 				health += part.Health;
 			}
-
 			return health / BodyParts.Count;
 		}
 	}
@@ -121,12 +120,14 @@ public class Robot : MonoBehaviour
 
 	private bool AddSparePartToInventory(SparePart item)
 	{
-		if (GameManager.Instance.Inventory.Count >= Config.inventoryCapacity)
-		{
-			return false;
-		}
+		if (GameManager.Instance.Inventory.Count >= Config.inventoryCapacity || item.Type == SparePart.SparePartType.EMPTY) return false;
 		
 		GameManager.Instance.Inventory.Add(item);
 		return true;
+	}
+
+	public void UpdateHealth()
+	{
+		_healthBar.text = Health.ToString();
 	}
 }

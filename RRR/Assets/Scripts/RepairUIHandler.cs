@@ -43,11 +43,11 @@ public class RepairUIHandler : MonoBehaviour
 
 	void PopulateInventory()
 	{
-		int i;
-		int upperBound = Mathf.Min(GameManager.Instance.Inventory.Count, _inventory.Count);
-		for (i = 0; i < upperBound; i++)
+		int i = 0;
+		foreach (SparePart part in GameManager.Instance.Inventory)
 		{
-			_inventory[i].FillSlot(GameManager.Instance.Inventory[i]);
+			_inventory[i].FillSlot(part);
+			i++;
 		}
 
 		for (; i < _inventory.Count; i++)
@@ -56,7 +56,7 @@ public class RepairUIHandler : MonoBehaviour
 		}
 	}
 
-	void UpdateHealth()
+	public void UpdateHealth()
 	{
 		foreach (BodyPartSlot slot in _bodyParts)
 		{
