@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -299,8 +299,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allLanes: []
   _laneMaterial: {fileID: 2100000, guid: 6307488b683fd4907b778db58ee6449b, type: 2}
-  _obstaclePrefab: {fileID: 6319437090761705787, guid: 5a44bbd20db344229b9183e206dada48,
-    type: 3}
+  _obstaclePrefabs:
+  - {fileID: 114332922875022822, guid: feb0b18633630412bb4f1f7e73491b78, type: 3}
+  - {fileID: 114332922875022822, guid: 1e0f92f7ced684b7eb41f3543ae3f12e, type: 3}
+  - {fileID: 114332922875022822, guid: 39de12a01606a4020bb5a73e80cd55fb, type: 3}
+  - {fileID: 114332922875022822, guid: c632f8046c37d4f3b94546036b2ad412, type: 3}
+  - {fileID: 114332922875022822, guid: 01f3deaacbd48409bb2456a8f1870162, type: 3}
   _obstacleContainer: {fileID: 222354159}
   jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
     type: 3}
@@ -523,6 +527,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815531741, guid: 8808022436516433ca11931add3989b5, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8808022436516433ca11931add3989b5, type: 3}

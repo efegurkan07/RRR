@@ -6,7 +6,7 @@ public class GameHandler : MonoBehaviour
 {
 	public Lane[] allLanes;
 	[SerializeField] private Material _laneMaterial;
-	[SerializeField] private GameObject _obstaclePrefab;
+	[SerializeField] private Obstacle[] _obstaclePrefabs;
 	[SerializeField] private Transform _obstacleContainer;
 	[SerializeField] private GameObject jetpackGuy = default;
 
@@ -32,6 +32,8 @@ public class GameHandler : MonoBehaviour
 		HandleObstacleSpawning();
 	}
 
+	private Random random = new Random();
+	
 	private void HandleObstacleSpawning()
 	{
 		GameManager.Instance.secondsToNextObstacles -= Time.deltaTime;
@@ -41,8 +43,10 @@ public class GameHandler : MonoBehaviour
 			for (int i = 0; i < indecies.Count; i++)
 			{
 				float lineDepth = allLanes[indecies[i]].transform.position.z;
+				int randomIndex = Random.Range(0, _obstaclePrefabs.Length - 1);
+				var randomObstacle = _obstaclePrefabs[randomIndex];
 				Instantiate(
-					_obstaclePrefab,
+					randomObstacle.gameObject,
 					new Vector3(Config.rightLineLimit, 0, lineDepth),
 					Quaternion.Euler(Vector3.zero),
 					_obstacleContainer
