@@ -1,11 +1,28 @@
-﻿using UnityEngine;
+﻿using System;
+using DefaultNamespace;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
+	private bool _storyWasSeen = false;
+	
+	private void Awake()
+	{
+		_storyWasSeen = PlayerPrefs.GetInt("story_was_seen", 0) == 1;
+	}
+
 	public void GotoGame()
 	{
-		SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
+		if (!_storyWasSeen)
+		{
+			GameManager.Instance.CurrentState = GameState.FirstTimeStory;
+			GotoStory();
+		}
+		else
+		{
+			SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
+		}
 	}
 
 	public void GotoCredits()

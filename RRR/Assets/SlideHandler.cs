@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,11 @@ public class SlideHandler : MonoBehaviour
 
     private int _currentIndex = 0;
     private float _timePassed;
+
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("story_was_seen", 1);
+    }
 
     private void Start()
     {
@@ -35,7 +41,16 @@ public class SlideHandler : MonoBehaviour
         _currentIndex++;
         if (_currentIndex > Slides.Length - 1)
         {
-            SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+            if (GameManager.Instance.CurrentState == GameState.FirstTimeStory)
+            {
+                SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+            }
+
+            return;
         }
             
         Slides[_currentIndex].SetActive(true);

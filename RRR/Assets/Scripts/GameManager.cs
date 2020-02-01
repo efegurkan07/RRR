@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DefaultNamespace;
 
 public class GameManager
 {
@@ -14,6 +15,8 @@ public class GameManager
 	
 	public List<SparePart> Inventory = new List<SparePart>();
 	private List<Robot> _robots = new List<Robot>();
+
+	public GameState CurrentState = GameState.MainMenu;
 
 	public static GameManager Instance
 	{
