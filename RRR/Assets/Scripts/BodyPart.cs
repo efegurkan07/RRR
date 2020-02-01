@@ -36,7 +36,7 @@ public class BodyPart
     public void Repair(SparePart sparePart)
     {
         _lastSparePartUsed = sparePart;
-        RepairUIHandler.robot.Inventory.Remove(sparePart);
+        GameManager.Instance.Inventory.Remove(sparePart);
         //TODO Update Health
         _health += (int) sparePart.Type;
     }

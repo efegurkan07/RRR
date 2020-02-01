@@ -44,10 +44,10 @@ public class RepairUIHandler : MonoBehaviour
 	void PopulateInventory()
 	{
 		int i;
-		int upperBound = Mathf.Min(robot.Inventory.Count, _inventory.Count);
+		int upperBound = Mathf.Min(GameManager.Instance.Inventory.Count, _inventory.Count);
 		for (i = 0; i < upperBound; i++)
 		{
-			_inventory[i].FillSlot(robot.Inventory[i]);
+			_inventory[i].FillSlot(GameManager.Instance.Inventory[i]);
 		}
 
 		for (; i < _inventory.Count; i++)
