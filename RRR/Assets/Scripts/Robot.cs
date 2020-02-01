@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 
@@ -46,6 +47,25 @@ public class Robot : MonoBehaviour
 		var obstacle = other.GetComponent<Obstacle>();
 		if (obstacle != null)
 		{
+			HandleDamageObstacle(obstacle);
+		}
+	}
+
+	private void HandleDamageObstacle(Obstacle obstacle)
+	{
+
+		var score = obstacle.GetScore();
+		var damage = obstacle.GetDamage();
+
+		if (score > 0)
+		{
+			GameManager.Instance.AddScore(score);
+			obstacle.OnObjectCollided();
+		}
+
+		if (damage > 0)
+		{
+
 			_health -= obstacle.GetDamage();
 			_healthBar.text = _health.ToString();
 
@@ -58,16 +78,16 @@ public class Robot : MonoBehaviour
 					var anim = Instantiate(_deathAnimation);
 					_deathAnimation.transform.position = transform.position;
 				}
-				
+
 				Destroy(gameObject);
 			}
+			else
+			{
+				obstacle.OnObjectCollided();
+			}
 		}
-		else
-		{
-			Debug.Log("Collided but not obstacle");
-		}
-	}
 
+	}
 
 	private void Update()
 	{

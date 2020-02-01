@@ -135,3 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950e27f92b644c0e85b672d2671078a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 5
+  Score: 0
+  DeathFX: {fileID: 0}

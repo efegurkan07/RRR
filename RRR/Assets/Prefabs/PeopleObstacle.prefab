@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1536330900273361827}
   - component: {fileID: 1536330900273361826}
-  - component: {fileID: 1536330900273361853}
-  - component: {fileID: 114951191113572358}
   - component: {fileID: 8182880966773560597}
   - component: {fileID: 6730717172818270835}
   m_Layer: 0
-  m_Name: People
+  m_Name: PeopleObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536330900273361852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.74, y: -2.03, z: 0}
+  m_LocalPosition: {x: 7.74, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,38 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1536330900273361853
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536330900273361852}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40eacee89c55e4644b3887460f16e56e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114951191113572358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536330900273361852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb653787fac54ddca4fc17d7af2a83fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Score: 1
 --- !u!114 &8182880966773560597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950e27f92b644c0e85b672d2671078a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 0
+  Score: 10
+  DeathFX: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626, type: 3}
 --- !u!65 &6730717172818270835
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -305,6 +305,7 @@ MonoBehaviour:
   - {fileID: 114332922875022822, guid: 39de12a01606a4020bb5a73e80cd55fb, type: 3}
   - {fileID: 114332922875022822, guid: c632f8046c37d4f3b94546036b2ad412, type: 3}
   - {fileID: 114332922875022822, guid: 01f3deaacbd48409bb2456a8f1870162, type: 3}
+  - {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c, type: 3}
   _obstacleContainer: {fileID: 222354159}
   jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
     type: 3}
