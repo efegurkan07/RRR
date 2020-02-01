@@ -57,7 +57,6 @@ public class GameHandler : MonoBehaviour
 
 	private void Update()
 	{
-		HandleGameTime();
 		AnimateLanes();
 		HandleObstacleSpawning();
 
@@ -121,16 +120,6 @@ public class GameHandler : MonoBehaviour
 		}
 
 		return objectsToChooseFrom[indexToSpawn].obstaclePrefab;
-	}
-
-	private void HandleGameTime()
-	{
-		GameManager.Instance.remainingTime -= Time.deltaTime;
-
-		if (!GameManager.Instance.IsGameOver && GameManager.Instance.remainingTime <= 0)
-		{
-			OnGameOver();
-		}
 	}
 
 	private void AnimateLanes()

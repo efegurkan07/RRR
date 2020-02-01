@@ -6,7 +6,6 @@ public class GameManager
 {
 	private static GameManager _instance;
 
-	public float remainingTime;
 	public long lastScore;
 	public List<HighScoreEntry> scores = new List<HighScoreEntry>();
 
@@ -34,7 +33,6 @@ public class GameManager
 
 	public void StartNewGame()
 	{
-		remainingTime = Config.secondsPerLevel;
 		lastScore = 0;
 		IsGameOver = false;
 
