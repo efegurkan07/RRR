@@ -4,14 +4,14 @@ using UnityEngine;
 public class RepairUIHandler : MonoBehaviour
 {
 	private Robot _robot;
-	List<Slot> _inventory;
+	List<InventorySlot> _inventory;
 
 	private void Start()
 	{
-		_inventory = new List<Slot>();
+		_inventory = new List<InventorySlot>();
 		for (int i = 0; i < Config.inventoryCapacity; i++)
 		{
-			_inventory.Add(transform.GetChild(i).gameObject.GetComponent<Slot>());
+			_inventory.Add(transform.GetChild(i).gameObject.GetComponent<InventorySlot>());
 		}
 	}
 
