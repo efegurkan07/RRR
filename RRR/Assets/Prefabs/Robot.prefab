@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a24bfcd4be140b88df77f7ddc6be3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathAnimation: {fileID: 0}
   _healthBar: {fileID: 815531739}
   currentLane: {fileID: 0}
 --- !u!65 &3632957810811606929
