@@ -83,7 +83,6 @@ public class Robot : MonoBehaviour
 			{ 
 				part.GetDamaged(damage);
 			}
-			_healthBar.text = Health.ToString();
 
 			if (Health <= 0)
 			{
@@ -118,6 +117,11 @@ public class Robot : MonoBehaviour
 		}
 	}
 
+	private void LateUpdate()
+	{
+		UpdateHealth();
+	}
+
 	private bool AddSparePartToInventory(SparePart item)
 	{
 		if (GameManager.Instance.Inventory.Count >= Config.inventoryCapacity || item.Type == SparePart.SparePartType.EMPTY) return false;
@@ -128,6 +132,6 @@ public class Robot : MonoBehaviour
 
 	public void UpdateHealth()
 	{
-		_healthBar.text = Health.ToString();
+		_healthBar.text = Health.ToString("0") + "%";
 	}
 }
