@@ -14,6 +14,11 @@ public class InputHandler : MonoBehaviour
 		_clickMask = LayerMask.GetMask("clickable");
 	}
 
+	int clicked = 0;
+	float clicktime = 0;
+	float clickdelay = 0.5f;
+	bool doubleClick = false;
+	
 	private void Update()
 	{
 		//collect click information 
@@ -21,6 +26,9 @@ public class InputHandler : MonoBehaviour
 		{
 			_clickStart = CastRay();
 			_clickEnd = null;
+			
+			clicked++;
+			if (clicked == 1) clicktime = Time.time;
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
@@ -31,6 +39,19 @@ public class InputHandler : MonoBehaviour
 			_clickStart = null;
 			_clickEnd = null;
 		}
+		
+		if (clicked > 1 && Time.time - clicktime < clickdelay)
+		{
+			clicked = 0;
+			clicktime = 0;
+			doubleClick = true;
+			Debug.Log("Double click detected");
+		} 
+		else if (clicked > 2 || Time.time - clicktime > 1)
+		{
+			clicked = 0;
+			doubleClick = false;
+		}
 
 		//check what is clicked and do awesome things:
 		
@@ -40,14 +61,15 @@ public class InputHandler : MonoBehaviour
 			Lane lane = _clickEnd?.collider?.GetComponent<Lane>();
 			if (robot != null && lane != null)
 			{
+				Debug.Log(("Switch Lane"));
 				robot.currentLane = lane;
 			}
 		}
 		{
 			Robot robot = _clickStart?.collider?.GetComponent<Robot>();
-			Robot sameRobot = _clickEnd?.collider?.GetComponent<Robot>();
-			if (robot != null && sameRobot != null && robot.Equals(sameRobot))
+			if (doubleClick && robot != null)
 			{
+				Debug.Log(("Open repair"));
 				FindObjectOfType<GameUIHandler>().ShowRepairOverlay(robot);
 			}
 		}
