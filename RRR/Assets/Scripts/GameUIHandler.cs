@@ -1,11 +1,12 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameUIHandler : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI _scoreLabel;
+    [SerializeField] private TextMeshProUGUI _scoreLabel;
+    [SerializeField] private TextMeshProUGUI _timeLabel;
     
     private GameHandler _gameHandler;
     
@@ -17,6 +18,7 @@ public class GameUIHandler : MonoBehaviour
     private void Update()
     {
         _scoreLabel.text = GameManager.Instance.Score.ToString();
+        UpdateTimeLabel(_gameHandler.GetRemainingTime());
     }
 
     public void GotoMainMenu()
@@ -27,5 +29,13 @@ public class GameUIHandler : MonoBehaviour
     public void AddScore()
     {
         _gameHandler.AddScore(1);
+    }
+
+    private void UpdateTimeLabel(float remainingTime)
+    {
+        int minutes = (int)(remainingTime / 60);
+        var seconds = (int)Math.Ceiling(remainingTime - minutes * 60);
+
+        _timeLabel.text = string.Format("{0}:{1:00}", minutes, seconds);
     }
 }

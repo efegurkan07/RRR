@@ -5,6 +5,8 @@ public class GameManager
 
     private long _score;
 
+    public readonly float TimePerLevel = 59;
+
     public long Score => _score;
 
     public static GameManager Instance
