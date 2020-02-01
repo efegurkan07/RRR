@@ -5,29 +5,33 @@ using UnityEngine;
 public class Robot : MonoBehaviour
 {
 	public Lane currentLane; 
-	List<Collectible> inventory;
-	
+	List<SparePart> _inventory;
+
+	public List<SparePart> Inventory => _inventory;
+
 	private void Start()
 	{
 		currentLane = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - transform.position.z))
 			.First();
-		inventory = new List<Collectible>();
+		_inventory = new List<SparePart>();
 	}
 
 	private void Update()
 	{
-		transform.position = Vector3.Lerp(
-			transform.position,
-			new Vector3(transform.position.x, transform.position.y, currentLane.transform.position.z),
+		var position = transform.position;
+		position = Vector3.Lerp(
+			position,
+			new Vector3(position.x, position.y, currentLane.transform.position.z),
 			Time.deltaTime
 		);
+		transform.position = position;
 	}
 
-	private bool AddCollectibleToInventory(Collectible item)
+	private bool AddCollectibleToInventory(SparePart item)
 	{
-		if (inventory.Count >= Config.inventoryCapacity)
+		if (_inventory.Count >= Config.inventoryCapacity)
 		{
-			inventory.Add(item);
+			_inventory.Add(item);
 			return true;
 		}
 
