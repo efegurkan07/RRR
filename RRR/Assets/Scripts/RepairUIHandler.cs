@@ -6,10 +6,13 @@ using UnityEngine;
 public class RepairUIHandler : MonoBehaviour
 { 
 	public static Robot robot;
+	
+	[SerializeField]
 	List<InventorySlot> _inventory; 
+	[SerializeField]
 	List<BodyPartSlot> _bodyParts;
 	
-	private void Start()
+	private void Awake()
 	{
 		_bodyParts = new List<BodyPartSlot>();
 		_inventory = new List<InventorySlot>();
@@ -25,10 +28,10 @@ public class RepairUIHandler : MonoBehaviour
 		}
 	}
 
-	public void Show(Robot robot)
+	public void Show(Robot robotToBeRepaired)
 	{
 		gameObject.SetActive(true);
-		RepairUIHandler.robot = robot;
+		robot = robotToBeRepaired;
 		PopulateInventory();
 		UpdateHealth();
 	}
