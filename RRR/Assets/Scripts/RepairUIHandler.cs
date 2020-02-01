@@ -10,17 +10,17 @@ public class RepairUIHandler : MonoBehaviour
 	
 	private void Start()
 	{
-		_inventory = new List<InventorySlot>();
 		_bodyParts = new List<BodyPartSlot>();
+		_inventory = new List<InventorySlot>();
+		
+		for (int i = 0; i < Config.bodyPartCount ; i++)
+		{
+			_bodyParts.Add(transform.GetChild(0).GetChild(i + 1).GetComponent<BodyPartSlot>());
+		}
 		
 		for (int i = 0; i < Config.inventoryCapacity; i++)
 		{
-			_inventory.Add(transform.GetChild(0).GetChild(i).gameObject.GetComponent<InventorySlot>());
-		}
-
-		for (int i = 0; i < Config.bodyPartCount ; i++)
-		{
-			_bodyParts.Add(transform.GetChild(1).GetChild(i + 1).GetComponent<BodyPartSlot>());
+			_inventory.Add(transform.GetChild(1).GetChild(i).gameObject.GetComponent<InventorySlot>());
 		}
 	}
 
