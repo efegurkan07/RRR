@@ -2,7 +2,7 @@ public static class Config
 {
 	public const float rightLineLimit = 20;
 	public const float levelRunSpeed = 3f;
-	public static float skylineRunSpeed = 0.15f;
+	public static float skylineRunSpeed = 0.05f;
 	public static float maximumHealth = 110f;
 	public static int yellowHealthIndicatorValue = 70;
 	public static int redHealthIndicatorValue = 30;
