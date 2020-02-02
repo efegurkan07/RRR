@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
@@ -85,7 +86,7 @@ public class GameManager
 
 	public void DamageAllRobots(int damage)
 	{
-		foreach (Robot robot in _robots)
+		foreach (Robot robot in _robots.ToList())
 		{
 			robot.GetDamaged(damage);
 		}
