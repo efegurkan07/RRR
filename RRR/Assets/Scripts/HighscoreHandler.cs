@@ -11,7 +11,7 @@ public class HighscoreHandler : MonoBehaviour
 
 	private void Start()
 	{
-		foreach (var score in GameManager.Instance.scores.OrderByDescending(x => x.Score))
+		foreach (var score in GameManager.Instance.scores.GroupBy(x => x.Score).Select(group => group.First()).OrderByDescending(x => x.Score))
 		{
 			var listItem = Instantiate(ScoreListItem, HighscoreList.transform);
 			listItem.SetScore(score.Score);

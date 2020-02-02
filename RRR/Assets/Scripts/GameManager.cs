@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using UnityEditor;
+using UnityEngine;
 
 public class GameManager
 {
@@ -25,6 +27,12 @@ public class GameManager
 			if (_instance == null)
 			{
 				_instance = new GameManager();
+				var jsonString = PlayerPrefs.GetString("highscore", "");
+
+				if (jsonString != "")
+				{
+					_instance.scores = JsonUtility.FromJson<HighscoreStore>(jsonString).scores;
+				}
 			}
 
 			return _instance;
@@ -46,6 +54,10 @@ public class GameManager
 		{
 			Score = LastScore
 		});
+		
+		string jsonString;
+		jsonString = JsonUtility.ToJson(new HighscoreStore{ scores = scores});
+		PlayerPrefs.SetString("highscore", jsonString);
 		
 		_robots.Clear();
 		Inventory.Clear();
