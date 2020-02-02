@@ -19,10 +19,9 @@ public class BodyPart
         get { return _health; }
         set
         {
-            if (value < 0)
-            {
+            _health = value;
+            if (_health < 0)
                 _health = 0;
-            }
         }
     }
 
