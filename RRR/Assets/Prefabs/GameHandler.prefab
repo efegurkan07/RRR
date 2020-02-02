@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1383759142124798689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383759142124798691}
+  - component: {fileID: 1383759142124798690}
+  - component: {fileID: 1383759142124798684}
+  m_Layer: 0
+  m_Name: GameHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1383759142124798691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383759142124798689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383759142124798690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383759142124798689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17703adb29b2a4af19ea8509112bb83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allLanes: []
+  _obstacleSpawnConfigs:
+  - obstaclePrefab: {fileID: 114332922875022822, guid: feb0b18633630412bb4f1f7e73491b78,
+      type: 3}
+    Probability: 20
+  - obstaclePrefab: {fileID: 114332922875022822, guid: 1e0f92f7ced684b7eb41f3543ae3f12e,
+      type: 3}
+    Probability: 20
+  - obstaclePrefab: {fileID: 114332922875022822, guid: 39de12a01606a4020bb5a73e80cd55fb,
+      type: 3}
+    Probability: 20
+  - obstaclePrefab: {fileID: 114332922875022822, guid: c632f8046c37d4f3b94546036b2ad412,
+      type: 3}
+    Probability: 20
+  - obstaclePrefab: {fileID: 114332922875022822, guid: 01f3deaacbd48409bb2456a8f1870162,
+      type: 3}
+    Probability: 20
+  _peoplePartsSpawnConfigs:
+  - obstaclePrefab: {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c,
+      type: 3}
+    Probability: 30
+  - obstaclePrefab: {fileID: 8182880966773560597, guid: f63c9ec7af16f4189a1eacb4a85f9f2b,
+      type: 3}
+    Probability: 30
+  - obstaclePrefab: {fileID: 114332922875022822, guid: 3e2c0d903f3ce4d56a30d3a7ba9f5d1c,
+      type: 3}
+    Probability: 25
+  - obstaclePrefab: {fileID: 114332922875022822, guid: 7873e1a1f0eed48f6ab9bb45781b1477,
+      type: 3}
+    Probability: 25
+  - obstaclePrefab: {fileID: 114332922875022822, guid: fcc3eb6fae1f645209365e5ae4f35bf7,
+      type: 3}
+    Probability: 25
+  _obstacleContainer: {fileID: 0}
+  jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
+    type: 3}
+  _robotPrefab: {fileID: 3632957810811606935, guid: 8808022436516433ca11931add3989b5,
+    type: 3}
+--- !u!114 &1383759142124798684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383759142124798689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b450310e5fa4a33be41154611a555d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
