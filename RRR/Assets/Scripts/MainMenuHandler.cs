@@ -41,6 +41,11 @@ public class MainMenuHandler : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		Camera.main.backgroundColor = Color.grey * (1f + Mathf.Sin(Mathf.Rad2Deg * Time.time / 16f) * 0.07f);
+	}
+
 	public void GotoGame()
 	{
 		if (!_storyWasSeen)
