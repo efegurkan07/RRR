@@ -53,7 +53,6 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     void Repair(SparePart sparePart)
     {
         _sparePartType = sparePart.Type;
-        Debug.Log("Repairing " + type + " with " + _sparePartType);
         _image.sprite = GetSprite(sparePart);
         _image.enabled = true;
         _bodyPart.Repair(sparePart);
