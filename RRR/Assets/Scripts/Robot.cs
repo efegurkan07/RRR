@@ -78,19 +78,7 @@ public class Robot : MonoBehaviour
 		{
 			Camera.main.GetComponent<ShakeBehavior>().TriggerShake(0.2f, 0.3f);
 			GetDamaged(damage);
-
-			if (Health <= 0)
-			{
-				GameManager.Instance.RemoveRobot(this);
-
-				if (_deathAnimation != null)
-				{
-					var anim = Instantiate(_deathAnimation);
-					_deathAnimation.transform.position = transform.position;
-				}
-
-				Destroy(gameObject);
-			}
+			
 			consumed = true;
 		}
 
@@ -135,6 +123,19 @@ public class Robot : MonoBehaviour
 		foreach (BodyPart part in BodyParts)
 		{ 
 			part.GetDamaged(damage);
+		}
+		
+		if (Health <= 0)
+		{
+			GameManager.Instance.RemoveRobot(this);
+
+			if (_deathAnimation != null)
+			{
+				var anim = Instantiate(_deathAnimation);
+				_deathAnimation.transform.position = transform.position;
+			}
+
+			Destroy(gameObject);
 		}
 	}
 }
