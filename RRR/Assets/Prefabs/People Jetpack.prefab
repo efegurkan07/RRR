@@ -130,6 +130,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6045f87c3bcf64787b12278b7ea430ca, type: 3}
   - {fileID: 8300000, guid: 3766362c8490f4e5793549290d23c10a, type: 3}
   - {fileID: 8300000, guid: 56ed9b1f08c6c4f1eaba3c05ffb41770, type: 3}
+  - {fileID: 8300000, guid: fbadbe745078149b18ec38659e4a3daf, type: 3}
+  - {fileID: 8300000, guid: 8af0df1a40d764979894d826059714ae, type: 3}
+  - {fileID: 8300000, guid: 1fd5301cabe1540a9a2ee8adda4a31dd, type: 3}
+  - {fileID: 8300000, guid: d69c07fc4d890415b880502963bb00c4, type: 3}
+  - {fileID: 8300000, guid: 05434e72c395841528046cd1f4436430, type: 3}
+  - {fileID: 8300000, guid: 76426e534fd3e4d7ab59f2c2cd9da8a9, type: 3}
+  - {fileID: 8300000, guid: cc9f2e729451b4a209869a21f80ae880, type: 3}
+  - {fileID: 8300000, guid: 530720453c9eb4b2894deeffc6ec357a, type: 3}
 --- !u!65 &6730717172818270835
 BoxCollider:
   m_ObjectHideFlags: 0
