@@ -326,10 +326,10 @@ MonoBehaviour:
   _peoplePartsSpawnConfigs:
   - obstaclePrefab: {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c,
       type: 3}
-    Probability: 50
+    Probability: 30
   - obstaclePrefab: {fileID: 8182880966773560597, guid: f63c9ec7af16f4189a1eacb4a85f9f2b,
       type: 3}
-    Probability: 50
+    Probability: 30
   - obstaclePrefab: {fileID: 114332922875022822, guid: 3e2c0d903f3ce4d56a30d3a7ba9f5d1c,
       type: 3}
     Probability: 25
@@ -754,17 +754,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
-        type: 3}
-      propertyPath: _buildingPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
-        type: 3}
-      propertyPath: _buildingPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1046929310624307452, guid: 28f14364b22ae4a529044484dfc4a3c0,
-        type: 3}
     - target: {fileID: 8370386765644981540, guid: 93221f38ea370448ba799460359cb453,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -780,5 +769,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
+        type: 3}
+      propertyPath: _buildingPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521499113665633346, guid: 93221f38ea370448ba799460359cb453,
+        type: 3}
+      propertyPath: _buildingPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1046929310624307452, guid: 28f14364b22ae4a529044484dfc4a3c0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93221f38ea370448ba799460359cb453, type: 3}
