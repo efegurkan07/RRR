@@ -39,7 +39,7 @@ public class GameHandler : MonoBehaviour
 		var robot = Instantiate(_robotPrefab);
 		var startLanel = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - robot.transform.position.z)).First();
 		robot.SetStartLane(startLanel);
-		robot.SetStartLane(allLanes[1]);
+
 		foreach (var lane in allLanes)
 		{
 			var material = lane.GetComponent<MeshRenderer>().material;
