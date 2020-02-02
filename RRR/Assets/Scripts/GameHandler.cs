@@ -64,6 +64,23 @@ public class GameHandler : MonoBehaviour
 		{
 			OnGameOver();
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+		{
+			TogglePause();
+		}
+	}
+
+	private void TogglePause()
+	{
+		if (Time.timeScale > 0)
+		{
+			Time.timeScale = 0;
+		}
+		else
+		{
+			Time.timeScale = 1;
+		}
 	}
 	
 	private void HandleObstacleSpawning()
