@@ -77,7 +77,6 @@ public class InputHandler : MonoBehaviour
 
 				if (swipeDistance > 10)
 				{
-					Debug.Log("magnitude " + swipeDistance);
 					robot.currentLane = lane;
 
 					_clickStart = null;
