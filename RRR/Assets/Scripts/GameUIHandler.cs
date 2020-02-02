@@ -15,7 +15,7 @@ public class GameUIHandler : MonoBehaviour
 
 	private void Update()
 	{
-		_scoreLabel.text = GameManager.Instance.LastScore.ToString();
+		_scoreLabel.text = "£ " + GameManager.Instance.LastScore.ToString();
 	}
 
 	public void ShowRepairOverlay(Robot robot)

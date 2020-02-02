@@ -565,6 +565,48 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe,
+        type: 2}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21070060077770110, guid: cb1b0220ba62d4f81b324cc5f591e0fe,
+        type: 2}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_text
+      value: "\xA3 0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 258344043270730377, guid: 4062707061f6e46e1a57bcca6e38da89,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4375576796772290988, guid: 4062707061f6e46e1a57bcca6e38da89,
         type: 3}
       propertyPath: m_AnchorMin.x
