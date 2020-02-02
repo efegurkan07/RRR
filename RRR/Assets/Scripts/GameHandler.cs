@@ -33,6 +33,7 @@ public class GameHandler : MonoBehaviour
 	void Start()
 	{
 		GameManager.Instance.StartNewGame();
+		MusicHandler.instance.insideLoop = true;
 		SceneManager.LoadSceneAsync("GameUI", LoadSceneMode.Additive);
 		allLanes = FindObjectsOfType<Lane>();
 
@@ -150,6 +151,7 @@ public class GameHandler : MonoBehaviour
 	private void OnGameOver()
 	{
 		GameManager.Instance.GameOver();
+		MusicHandler.instance.insideLoop = false;
 		SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
 		StopCoroutine(DamageOverTime());
 	}
