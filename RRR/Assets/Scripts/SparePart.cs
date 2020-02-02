@@ -13,7 +13,8 @@ public class SparePart
     }
     
     private SparePartType _type;
-
+    private static SparePartType[] validTypes = new []{SparePartType.RED, SparePartType.BLUE, SparePartType.YELLOW};
+    
     public SparePartType Type
     {
         get => _type;
@@ -47,5 +48,10 @@ public class SparePart
     public Color GetColor()
     {
         return GetColor(_type);
+    }
+
+    public static SparePartType GetRandomSparePartType()
+    {
+        return validTypes[Random.Range(0, validTypes.Length)];
     }
 }
