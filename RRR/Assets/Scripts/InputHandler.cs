@@ -5,14 +5,16 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
 	private static Camera _mainCamera;
-	private static LayerMask _clickMask;
+	private static LayerMask _clickStartMask;
+	private static LayerMask _clickEndMask;
 	private static Nullable<RaycastHit> _clickStart;
 	private static Nullable<RaycastHit> _clickEnd;
 
 	private void Start()
 	{
 		_mainCamera = Camera.main;
-		_clickMask = LayerMask.GetMask("clickable");
+		_clickStartMask = LayerMask.GetMask("clickable");
+		_clickEndMask = LayerMask.GetMask("lanes");
 	}
 
 	int clicked = 0;
@@ -30,7 +32,7 @@ public class InputHandler : MonoBehaviour
 		//collect click information 
 		if (Input.GetMouseButtonDown(0))
 		{
-			_clickStart = CastRay();
+			_clickStart = CastRay(_clickStartMask);
 			_clickEnd = null;
 			
 			clicked++;
@@ -38,7 +40,7 @@ public class InputHandler : MonoBehaviour
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			_clickEnd = CastRay();
+			_clickEnd = CastRay(_clickEndMask);
 		}
 		else if (!Input.GetMouseButton(0))
 		{
@@ -84,11 +86,11 @@ public class InputHandler : MonoBehaviour
 		}
 	}
 
-	private RaycastHit CastRay()
+	private RaycastHit CastRay(LayerMask mask)
 	{
 		Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hitInfo;
-		Physics.Raycast(ray, out hitInfo, Mathf.Infinity, _clickMask);
+		Physics.Raycast(ray, out hitInfo, Mathf.Infinity, mask);
 		return hitInfo;
 	}
 }
