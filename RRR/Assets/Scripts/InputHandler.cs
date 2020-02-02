@@ -61,17 +61,28 @@ public class InputHandler : MonoBehaviour
 		}
 
 		//check what is clicked and do awesome things:
-		
+
 		//drag robot to lane
 		{
 			Robot robot = _clickStart?.collider?.GetComponent<Robot>();
 			Lane lane = _clickEnd?.collider?.GetComponent<Lane>();
 			if (robot != null && lane != null)
 			{
-				robot.currentLane = lane;
+				Vector3 clickStartPoint = _clickStart?.point ?? Vector3.zero;
+				Vector3 clickEndPoint = _clickEnd?.point ?? Vector3.zero;
 				
-				_clickStart = null;
-				_clickEnd = null;
+				var startWorldPoint = Camera.main.WorldToScreenPoint(clickStartPoint);
+				var EndWorldPoint = Camera.main.WorldToScreenPoint(clickEndPoint);
+				var swipeDistance = (EndWorldPoint - startWorldPoint).magnitude;
+
+				if (swipeDistance > 10)
+				{
+					Debug.Log("magnitude " + swipeDistance);
+					robot.currentLane = lane;
+
+					_clickStart = null;
+					_clickEnd = null;
+				}
 			}
 		}
 		{
