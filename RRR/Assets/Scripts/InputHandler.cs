@@ -51,7 +51,6 @@ public class InputHandler : MonoBehaviour
 			clicked = 0;
 			clicktime = 0;
 			doubleClick = true;
-			Debug.Log("Double click detected");
 		} 
 		else if (clicked > 2 || Time.time - clicktime > 1)
 		{
