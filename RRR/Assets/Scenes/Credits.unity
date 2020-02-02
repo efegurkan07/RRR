@@ -302,7 +302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 6, y: -285}
+  m_AnchoredPosition: {x: 6, y: -323}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &170001120
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Andi
+  m_text: honeylime
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85669fd77663346c38a5e53d5de2e601, type: 2}
   m_sharedMaterial: {fileID: 21091928088584760, guid: 85669fd77663346c38a5e53d5de2e601,
@@ -352,17 +352,17 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 33.9
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 170001120}
-    characterCount: 4
+    characterCount: 9
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -614,8 +614,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 263, y: -212}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 246, y: -234}
+  m_SizeDelta: {x: 215.3, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &245325782
 MonoBehaviour:
@@ -635,9 +635,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Olli
+  m_text: 'Intellektfresser
 
-    Tim'
+    Goldrusher76'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85669fd77663346c38a5e53d5de2e601, type: 2}
   m_sharedMaterial: {fileID: 21091928088584760, guid: 85669fd77663346c38a5e53d5de2e601,
@@ -666,24 +666,24 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 23.5
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 5
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -704,10 +704,10 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -38.909866, y: 0, z: -66.70253, w: -26.403072}
   m_textInfo:
     textComponent: {fileID: 245325782}
-    characterCount: 8
+    characterCount: 29
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -855,7 +855,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -252, y: -180}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &767003228
 MonoBehaviour:
@@ -875,11 +875,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Efe
+  m_text: 'efegurkan
 
-    Marco
+    firegate666
 
-    Aaron'
+    AyJayKay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85669fd77663346c38a5e53d5de2e601, type: 2}
   m_sharedMaterial: {fileID: 21091928088584760, guid: 85669fd77663346c38a5e53d5de2e601,
@@ -908,24 +908,24 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 25.8
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 4
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -946,10 +946,10 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -34.740887, y: 0, z: -36.13055, w: -86.15743}
   m_textInfo:
     textComponent: {fileID: 767003228}
-    characterCount: 15
+    characterCount: 30
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -1341,7 +1341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -178}
+  m_AnchoredPosition: {x: 2, y: -216}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1225046231
