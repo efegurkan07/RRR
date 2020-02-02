@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 15
+  serializedVersion: 18
   productGUID: fcb32cae549194d10bc798b6cb1c3511
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -44,6 +44,8 @@ PlayerSettings:
     duration: 3
   - logo: {fileID: 21300000, guid: 1b7179a6862cc4a74a69d327468ecd84, type: 3}
     duration: 3
+  - logo: {fileID: 21300000, guid: eb0f95cbe65874abb8a4178acb6eba58, type: 3}
+    duration: 3
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -56,8 +58,8 @@ PlayerSettings:
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
-  iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
+  iosUseCustomAppBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -147,6 +149,9 @@ PlayerSettings:
     oculus:
       sharedDepthBuffer: 1
       dashSupport: 1
+      lowOverheadMode: 0
+      protectedContext: 0
+      v2Signing: 0
     enable360StereoCapture: 0
   protectGraphicsMemory: 0
   enableFrameTimingStats: 0
@@ -157,6 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 2
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: de.crewthis.unicorn
     Standalone: com.Company.ProductName
   buildNumber: {}
   AndroidBundleVersionCode: 1
