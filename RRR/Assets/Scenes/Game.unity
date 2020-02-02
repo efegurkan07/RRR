@@ -326,16 +326,16 @@ MonoBehaviour:
   _peoplePartsSpawnConfigs:
   - obstaclePrefab: {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c,
       type: 3}
-    Probability: 10
+    Probability: 20
   - obstaclePrefab: {fileID: 114332922875022822, guid: 3e2c0d903f3ce4d56a30d3a7ba9f5d1c,
       type: 3}
-    Probability: 30
+    Probability: 25
   - obstaclePrefab: {fileID: 114332922875022822, guid: 7873e1a1f0eed48f6ab9bb45781b1477,
       type: 3}
-    Probability: 30
+    Probability: 25
   - obstaclePrefab: {fileID: 114332922875022822, guid: fcc3eb6fae1f645209365e5ae4f35bf7,
       type: 3}
-    Probability: 30
+    Probability: 25
   _obstacleContainer: {fileID: 222354159}
   jetpackGuy: {fileID: 1536330900273361852, guid: c6e84a6aca0524053aafc69dffda8626,
     type: 3}
