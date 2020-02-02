@@ -56,6 +56,8 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (!_bodyPart.Repairable) return;
+        
         InventorySlot inventorySlot = InventorySlot.itemBeingDragged;
         
         if (inventorySlot == null) return;

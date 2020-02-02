@@ -25,6 +25,13 @@ public class BodyPart
         }
     }
 
+    private bool repairable = true;
+
+    public bool Repairable
+    {
+        get => repairable;
+    }
+
     private BodyPartType _type;
     public BodyPartType Type => _type;
 
@@ -44,5 +51,7 @@ public class BodyPart
     public void GetDamaged(int damage)
     {
         Health -= damage;
+        if (_health == 0)
+            repairable = false;
     }
 }
