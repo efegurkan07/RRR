@@ -17,4 +17,5 @@ public static class Config
 	public const float laneTilingMagicNr = 13.5f; //yes, this is a proper balancing calculation :P
 	public const float robotRunSpeed = 10f * (levelRunSpeed / 7.75f); //this too!
 	public static WaitForSeconds damageOverTimePeriod = new WaitForSeconds(1f);
+	public const int obstacleProbability = 70;
 }
