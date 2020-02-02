@@ -695,6 +695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
         type: 3}
+      propertyPath: _obstacleSpawnConfigs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
+        type: 3}
       propertyPath: _obstacleContainer
       value: 
       objectReference: {fileID: 222354159}
