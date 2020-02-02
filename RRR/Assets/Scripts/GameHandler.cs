@@ -103,7 +103,7 @@ public class GameHandler : MonoBehaviour
 				Instantiate(
 					randomObstacle.gameObject,
 					new Vector3(Config.rightLineLimit, 0, lineDepth),
-					Quaternion.Euler(Vector3.zero),
+					randomObstacle.transform.rotation,
 					_obstacleContainer
 				);
 			}
