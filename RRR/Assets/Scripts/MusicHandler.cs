@@ -30,6 +30,5 @@ public class MusicHandler : MonoBehaviour
         if (!insideLoop) return;
         if (!(source.time > loopEnds)) return;
         source.time = loopStarts;
-        Debug.Log("LOOPED");
     }
 }

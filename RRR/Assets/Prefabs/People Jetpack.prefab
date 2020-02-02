@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6730717172818270835}
   - component: {fileID: 8236313566246244695}
   m_Layer: 0
-  m_Name: People
+  m_Name: People Jetpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1536330900273361853
@@ -115,6 +115,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb653787fac54ddca4fc17d7af2a83fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerSounds:
+  - {fileID: 8300000, guid: ee275406e64684ab2b52d0d22cbb1207, type: 3}
+  - {fileID: 8300000, guid: 972c1adc7fe9c406f8d7efa77b1a308d, type: 3}
+  - {fileID: 8300000, guid: 005e851ffff7c41298eb5e9a6f51aac3, type: 3}
+  - {fileID: 8300000, guid: 502e0e84a7c9b48038c9540339a0caba, type: 3}
+  - {fileID: 8300000, guid: 00e7015eab5f84d12bea339e4fef5231, type: 3}
+  - {fileID: 8300000, guid: aa239c8ac76c04825a57642ac0b9675a, type: 3}
+  - {fileID: 8300000, guid: 985c162b09eb840279d408c9ebe1faf0, type: 3}
+  - {fileID: 8300000, guid: 1957fe8b89ec7473f889b74aa020477e, type: 3}
+  - {fileID: 8300000, guid: a068d93d0fdc14d02ad53bcd82fc89b5, type: 3}
+  - {fileID: 8300000, guid: ca5770775d49f46c480554adf3a918ae, type: 3}
+  - {fileID: 8300000, guid: eccb5b890a72d4b718ef68395c903fc1, type: 3}
+  - {fileID: 8300000, guid: 6045f87c3bcf64787b12278b7ea430ca, type: 3}
+  - {fileID: 8300000, guid: 3766362c8490f4e5793549290d23c10a, type: 3}
+  - {fileID: 8300000, guid: 56ed9b1f08c6c4f1eaba3c05ffb41770, type: 3}
+  - {fileID: 8300000, guid: fbadbe745078149b18ec38659e4a3daf, type: 3}
+  - {fileID: 8300000, guid: 8af0df1a40d764979894d826059714ae, type: 3}
+  - {fileID: 8300000, guid: 1fd5301cabe1540a9a2ee8adda4a31dd, type: 3}
+  - {fileID: 8300000, guid: d69c07fc4d890415b880502963bb00c4, type: 3}
+  - {fileID: 8300000, guid: 05434e72c395841528046cd1f4436430, type: 3}
+  - {fileID: 8300000, guid: 76426e534fd3e4d7ab59f2c2cd9da8a9, type: 3}
+  - {fileID: 8300000, guid: cc9f2e729451b4a209869a21f80ae880, type: 3}
+  - {fileID: 8300000, guid: 530720453c9eb4b2894deeffc6ec357a, type: 3}
+  - {fileID: 8300000, guid: c748ce86847b24b36ae9ccd1861bead3, type: 3}
+  - {fileID: 8300000, guid: ebb368d54fb82456a90c1ddb9f322564, type: 3}
+  - {fileID: 8300000, guid: 91d9b45caa88c4915ac9dee7a6155454, type: 3}
+  - {fileID: 8300000, guid: 8b62628f2355e455caccc43a30a37ebe, type: 3}
+  - {fileID: 8300000, guid: 436fa53404c464475b6289b7c3e3263d, type: 3}
+  - {fileID: 8300000, guid: 7c67ac17fbd3446d3a06361dc1e36292, type: 3}
+  - {fileID: 8300000, guid: e27c30d56483a4fe7840dec7d25e1094, type: 3}
+  - {fileID: 8300000, guid: 767522848020a4637bec885026b60743, type: 3}
+  - {fileID: 8300000, guid: 48e6cd061d4ce47908513e8af54616a1, type: 3}
+  - {fileID: 8300000, guid: 1f00aae2311564737aaf7ad5abe30cbc, type: 3}
+  - {fileID: 8300000, guid: cb8b55e9fd89f466080a302f39b4350e, type: 3}
 --- !u!65 &6730717172818270835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -139,7 +173,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: be70b4f1baf9f4f68812d425989525d7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
