@@ -28,24 +28,4 @@ public class SparePart
     {
         _type = type;
     }
-
-    public static Color GetColor(SparePartType sparePartType)
-    {
-        switch (sparePartType)
-        {
-            case SparePartType.RED : // Chewing Gum
-                return Color.red;
-            case SparePartType.BLUE : // Nut
-                return Color.blue;
-            case SparePartType.YELLOW : // Gear
-                return Color.yellow;
-            default:
-                return Color.grey;
-        }   
-    }
-
-    public Color GetColor()
-    {
-        return GetColor(_type);
-    }
 }
