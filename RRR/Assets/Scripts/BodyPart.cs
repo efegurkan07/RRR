@@ -19,25 +19,19 @@ public class BodyPart
         get { return _health; }
     }
 
-    [SerializeField]
     private BodyPartType _type;
     public BodyPartType Type => _type;
 
-    private SparePart _lastSparePartUsed;
-    public SparePart LastSparePartUsed => _lastSparePartUsed;
 
     public BodyPart(BodyPartType type)
     {
         _type = type;
         _health = Config.initialBodyPartHealth;
-        _lastSparePartUsed = SparePart.EMPTY;
     }
 
     public void Repair(SparePart sparePart)
     {
-        _lastSparePartUsed = sparePart;
         GameManager.Instance.Inventory.Remove(sparePart);
-        //TODO Update Health
         _health = (int) Mathf.Clamp((int) sparePart.Type + _health, 0, Config.maximumHealth);
     }
 

@@ -6,13 +6,11 @@ public class HealthBarHandlerUI : MonoBehaviour
     private Image healthBar;
     private RectTransform healthBarRectTransform;
     
-    private float initialHeight;
     // Start is called before the first frame update
     void Awake()
     {
-        healthBarRectTransform = (RectTransform)transform.GetChild(0);
+        healthBarRectTransform = (RectTransform)transform;
         healthBar = healthBarRectTransform.GetComponent<Image>();
-        initialHeight = healthBarRectTransform.rect.height;
     }
 
     public void SetHealth(int health)
@@ -30,7 +28,7 @@ public class HealthBarHandlerUI : MonoBehaviour
             SetColor(Color.red);
         }
 
-        healthBarRectTransform.localScale = new Vector3(1, (float) health / Config.initialBodyPartHealth, 1);
+        healthBarRectTransform.localScale = new Vector3( (float) health / Config.initialBodyPartHealth, 1,1);
     }
 
     void SetColor(Color c)

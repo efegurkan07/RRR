@@ -8,7 +8,11 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     [SerializeField] Sprite nut;
     [SerializeField] Sprite gear;
 
-    private Image _image;
+    [SerializeField]
+    private Image itemImage;
+    [SerializeField]
+    private Image neededItemImage;
+    [SerializeField]
     private HealthBarHandlerUI _healthBarHandlerUi;
     
     [SerializeField]
@@ -19,56 +23,48 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         get => type;
     }
 
-    private SparePart.SparePartType _sparePartType;
-    private BodyPart _bodyPart;
+    private SparePart.SparePartType _neededSparePart;
 
-    public BodyPart BodyPart => _bodyPart;
-
-    float Health => _bodyPart.Health;
-
-    // SparePart.SparePartType SparePartType
-    // {
-    //     get => _sparePartType; 
-    //     set
-    //     {
-    //         _sparePartType = value;
-    //         _image.color = SparePart.GetColor(value);
-    //     }
-    // }
-
-    public void Awake()
+    public SparePart.SparePartType  NeededSparePart
     {
-        _image = transform.GetChild(1).GetComponent<Image>();
-        _healthBarHandlerUi = GetComponentInChildren<HealthBarHandlerUI>();
+        get => _neededSparePart;
+        set
+        {
+            _neededSparePart = value;
+            neededItemImage.sprite = GetSprite(value);
+        }
     }
+
+    private BodyPart _bodyPart;
 
     public void Initialize(BodyPart bodyPart)
     {
         type = bodyPart.Type;
         _bodyPart = bodyPart;
-        // SparePartType = SparePart.SparePartType.EMPTY;
-        _image.enabled = false;
+        NeededSparePart = SparePart.GetRandomSparePartType();
+        itemImage.enabled = false;
     }
     
     void Repair(SparePart sparePart)
     {
-        _sparePartType = sparePart.Type;
-        Debug.Log("Repairing " + type + " with " + _sparePartType);
-        _image.sprite = GetSprite(sparePart);
-        _image.enabled = true;
+        itemImage.sprite = GetSprite(sparePart.Type);
+        itemImage.enabled = true;
         _bodyPart.Repair(sparePart);
+        NeededSparePart = SparePart.GetRandomSparePartType();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         InventorySlot inventorySlot = InventorySlot.itemBeingDragged;
-        if (inventorySlot != null)
-        {
-            SparePart part = inventorySlot.SparePart;
-            Repair(part);
-            RepairUIHandler.robot.UpdateHealth();
-            inventorySlot.FillSlot(SparePart.EMPTY);
-        }
+        
+        if (inventorySlot == null) return;
+        
+        SparePart part = inventorySlot.SparePart;
+        if (part.Type != _neededSparePart) return;
+        
+        Repair(part);
+        RepairUIHandler.robot.UpdateHealth();
+        inventorySlot.FillSlot(SparePart.EMPTY);
     }
 
     void Update()
@@ -76,9 +72,9 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         _healthBarHandlerUi.SetHealth(_bodyPart.Health);
     }
     
-    public Sprite GetSprite(SparePart part)
+    public Sprite GetSprite(SparePart.SparePartType type)
     {
-        switch (part.Type)
+        switch (type)
         {
             case SparePart.SparePartType.RED:
                 return gum;
