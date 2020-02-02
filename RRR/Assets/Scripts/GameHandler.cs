@@ -37,14 +37,16 @@ public class GameHandler : MonoBehaviour
 		allLanes = FindObjectsOfType<Lane>();
 
 		var robot = Instantiate(_robotPrefab);
-		robot.SetStartLane(allLanes[1]);
+		var startLanel = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - robot.transform.position.z)).First();
+		robot.SetStartLane(startLanel);
 		
-		StartCoroutine(DamageOverTime());
 		/*var robot2 = Instantiate(_robotPrefab);
 		robot2.SetStartLane(allLanes[1]);
 		
 		var robot3 = Instantiate(_robotPrefab);
 		robot3.SetStartLane(allLanes[2]);*/
+		
+		StartCoroutine(DamageOverTime());
 	}
 
 	public void LaunchJetpack()
