@@ -20,7 +20,7 @@ public class SlideHandler : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("story_was_seen", 1);
+        PlayerPrefs.SetInt("story_was_seen_once", 1);
     }
 
     private void Start()
@@ -62,15 +62,7 @@ public class SlideHandler : MonoBehaviour
         _currentIndex++;
         if (_currentIndex > Slides.Length - 1)
         {
-            if (GameManager.Instance.CurrentState == GameState.FirstTimeStory)
-            {
-                SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
-            }
-            else
-            {
-                SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
-            }
-
+            SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
             return;
         }
             
