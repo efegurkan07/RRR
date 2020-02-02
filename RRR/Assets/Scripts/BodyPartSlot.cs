@@ -42,7 +42,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         type = bodyPart.Type;
         _bodyPart = bodyPart;
         if(NeededSparePart == SparePart.SparePartType.EMPTY)
-            NeededSparePart = SparePart.GetRandomSparePartType();
+            NeededSparePart = RepairUIHandler.instance.GetRandomSparePartType();
         // itemImage.enabled = false;
     }
     
@@ -51,7 +51,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         // itemImage.sprite = GetSprite(sparePart.Type);
         // itemImage.enabled = true;
         _bodyPart.Repair(sparePart);
-        NeededSparePart = SparePart.GetRandomSparePartType();
+        NeededSparePart = RepairUIHandler.instance.GetRandomSparePartType();
     }
 
     public void OnDrop(PointerEventData eventData)

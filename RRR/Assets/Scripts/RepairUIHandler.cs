@@ -4,7 +4,8 @@ using DefaultNamespace;
 using UnityEngine;
 
 public class RepairUIHandler : MonoBehaviour
-{ 
+{
+	public static RepairUIHandler instance;
 	public static Robot robot;
 	
 	[SerializeField]
@@ -14,6 +15,13 @@ public class RepairUIHandler : MonoBehaviour
 	
 	private void Awake()
 	{
+		if(instance == null) {
+			instance = this;
+		}
+		else if (instance != this) {
+			Destroy(gameObject);
+		}
+		
 		_bodyParts = new List<BodyPartSlot>();
 		_inventory = new List<InventorySlot>();
 		
@@ -77,5 +85,39 @@ public class RepairUIHandler : MonoBehaviour
 	private void Update()
 	{
 		PopulateInventory();
+	}
+	
+	
+	private static readonly SparePart.SparePartType[] validTypes = {SparePart.SparePartType.RED, SparePart.SparePartType.BLUE, SparePart.SparePartType.YELLOW};
+	private static Dictionary<SparePart.SparePartType, int> sparePartCount = null;
+	public SparePart.SparePartType GetRandomSparePartType()
+	{
+		if (sparePartCount == null)
+		{
+			sparePartCount = new Dictionary<SparePart.SparePartType, int>();
+			foreach (SparePart.SparePartType type in validTypes)
+			{
+				sparePartCount.Add(type, 0);
+			}
+		}
+		
+		foreach (BodyPartSlot slot in _bodyParts)
+		{
+			if(slot.NeededSparePart != SparePart.SparePartType.EMPTY)
+				sparePartCount[slot.NeededSparePart]++;
+		}
+
+		SparePart.SparePartType part;
+		do
+		{
+			part = validTypes[Random.Range(0, validTypes.Length)];
+		} while (sparePartCount[part] > Mathf.CeilToInt(_bodyParts.Count / 2f));
+
+		foreach (SparePart.SparePartType type in validTypes)
+		{
+			sparePartCount[type] = 0;
+		}
+		
+		return part;
 	}
 }
