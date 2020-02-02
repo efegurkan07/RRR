@@ -18,4 +18,5 @@ public static class Config
 	public const float robotRunSpeed = 10f * (levelRunSpeed / 7.75f); //this too!
 	public static WaitForSeconds damageOverTimePeriod = new WaitForSeconds(1f);
 	public const int obstacleProbability = 70;
+	public const int healAmount = 20;
 }
