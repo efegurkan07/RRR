@@ -17,6 +17,13 @@ public class BodyPart
     public int Health
     {
         get { return _health; }
+        set
+        {
+            if (value < 0)
+            {
+                _health = 0;
+            }
+        }
     }
 
     private BodyPartType _type;
@@ -37,6 +44,6 @@ public class BodyPart
 
     public void GetDamaged(int damage)
     {
-        _health -= damage;
+        Health -= damage;
     }
 }
