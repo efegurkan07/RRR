@@ -22,7 +22,6 @@ class SpawnMapping {
 public class GameHandler : MonoBehaviour
 {
 	public Lane[] allLanes;
-	[SerializeField] private Material _laneMaterial;
 	[SerializeField] private ObstacleSpawnConfig[] _obstacleSpawnConfigs;
 	[SerializeField] private ObstacleSpawnConfig[] _peoplePartsSpawnConfigs;
 	[SerializeField] private Transform _obstacleContainer;
@@ -40,6 +39,12 @@ public class GameHandler : MonoBehaviour
 		var robot = Instantiate(_robotPrefab);
 		var startLanel = FindObjectsOfType<Lane>().OrderBy(x => Mathf.Abs(x.transform.position.z - robot.transform.position.z)).First();
 		robot.SetStartLane(startLanel);
+		robot.SetStartLane(allLanes[1]);
+		foreach (var lane in allLanes)
+		{
+			var material = lane.GetComponent<MeshRenderer>().material;
+			material.mainTextureOffset = new Vector2(Random.value, 1f);
+		}
 		
 		/*var robot2 = Instantiate(_robotPrefab);
 		robot2.SetStartLane(allLanes[1]);
@@ -144,8 +149,12 @@ public class GameHandler : MonoBehaviour
 
 	private void AnimateLanes()
 	{
-		_laneMaterial.mainTextureOffset =
-			new Vector2((_laneMaterial.mainTextureOffset.x - Time.deltaTime * (Config.levelRunSpeed / Config.laneTilingMagicNr)) % 1, 1);
+		foreach (var lane in allLanes)
+		{
+			var material = lane.GetComponent<MeshRenderer>().material;
+			material.mainTextureOffset =
+				new Vector2((material.mainTextureOffset.x - Time.deltaTime * (Config.levelRunSpeed / Config.laneTilingMagicNr)) % 1, 1);
+		}
 	}
 
 	private void OnGameOver()
@@ -156,11 +165,6 @@ public class GameHandler : MonoBehaviour
 		StopCoroutine(DamageOverTime());
 	}
 
-	private void OnDestroy()
-	{
-		_laneMaterial.mainTextureOffset = Vector2.one;
-	}
-	
 	IEnumerator DamageOverTime()
 	{
 		while (true)
