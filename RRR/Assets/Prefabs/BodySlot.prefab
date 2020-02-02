@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -478,7 +478,6 @@ MonoBehaviour:
   gum: {fileID: 21300000, guid: 1f1a6f3e74d6e4ce29e1ccc5ce1f4519, type: 3}
   nut: {fileID: 21300000, guid: a8ff7a3d40e4d4ed4a1c7822e2991978, type: 3}
   gear: {fileID: 21300000, guid: 23d3b20470c5f4bebb53fd581092a8e8, type: 3}
-  itemImage: {fileID: 4829784744753417657}
   neededItemImage: {fileID: 4652047171262674236}
   _healthBarHandlerUi: {fileID: 2791990203403635301}
   type: 2

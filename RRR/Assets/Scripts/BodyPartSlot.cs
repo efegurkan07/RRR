@@ -65,7 +65,6 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         
         Repair(part);
         RepairUIHandler.robot.UpdateHealth();
-        inventorySlot.FillSlot(SparePart.EMPTY);
     }
 
     void Update()
