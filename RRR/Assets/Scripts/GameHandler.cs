@@ -28,6 +28,9 @@ public class GameHandler : MonoBehaviour
 	[SerializeField] private GameObject jetpackGuy = default;
 
 	[SerializeField] private Robot _robotPrefab;
+	public GameObject warningPrefab;
+	public GameObject emojiPrefab;
+	public GameObject glitterPrefab;
 
 	void Start()
 	{
