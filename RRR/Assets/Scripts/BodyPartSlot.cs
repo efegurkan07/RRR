@@ -19,6 +19,8 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     [SerializeField]
     private BodyPart.BodyPartType type;
 
+    [SerializeField] private AudioSource itemAppliedSound;
+
     private bool repairable = true;
     
     [SerializeField] private GameObject outOfOrderText;
@@ -77,6 +79,8 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         
         Repair(part);
         RepairUIHandler.robot.UpdateHealth();
+        
+        itemAppliedSound.Play();
     }
 
     void Update()

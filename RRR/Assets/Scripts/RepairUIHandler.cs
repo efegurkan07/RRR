@@ -12,6 +12,9 @@ public class RepairUIHandler : MonoBehaviour
 	List<InventorySlot> _inventory; 
 	[SerializeField]
 	List<BodyPartSlot> _bodyParts;
+
+	[SerializeField] private AudioSource closeSound;
+	
 	
 	private void Awake()
 	{
@@ -57,6 +60,10 @@ public class RepairUIHandler : MonoBehaviour
 	public void Close()
 	{
 		gameObject.SetActive(false);
+
+		var playSound = GameObject.Find("PlaySound").GetComponent<AudioSource>();
+		playSound.clip = closeSound.clip;
+		playSound.Play();
 	}
 
 	void PopulateInventory()
