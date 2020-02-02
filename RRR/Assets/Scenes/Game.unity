@@ -326,7 +326,7 @@ MonoBehaviour:
   _peoplePartsSpawnConfigs:
   - obstaclePrefab: {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c,
       type: 3}
-    Probability: 20
+    Probability: 60
   - obstaclePrefab: {fileID: 114332922875022822, guid: 3e2c0d903f3ce4d56a30d3a7ba9f5d1c,
       type: 3}
     Probability: 25
