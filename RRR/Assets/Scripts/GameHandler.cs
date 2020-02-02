@@ -96,7 +96,7 @@ public class GameHandler : MonoBehaviour
 			{
 				var lineDepth = allLanes[indecies[i]].transform.position.z;
 				
-				var spawnObstacle = Random.Range(0, 2) == 0; // 0 or 1
+				var spawnObstacle = Random.Range(0, 100) < Config.obstacleProbability; // 0 - 99
 				var objectsToChooseFrom = spawnObstacle ? _obstacleSpawnConfigs : _peoplePartsSpawnConfigs;
 				
 				var randomObstacle = PickRandom(objectsToChooseFrom);
