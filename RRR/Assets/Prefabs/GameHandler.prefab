@@ -82,6 +82,12 @@ MonoBehaviour:
     type: 3}
   _robotPrefab: {fileID: 3632957810811606935, guid: 8808022436516433ca11931add3989b5,
     type: 3}
+  warningPrefab: {fileID: 1536330900273361852, guid: 6a9ca79bd044b44af96e3084b3e25323,
+    type: 3}
+  emojiPrefab: {fileID: 1536330900273361852, guid: c42a4ca29caa74848a403d3fb368608f,
+    type: 3}
+  glitterPrefab: {fileID: 1536330900273361852, guid: f18b2d4300845455095cde407832a236,
+    type: 3}
 --- !u!114 &1383759142124798684
 MonoBehaviour:
   m_ObjectHideFlags: 0

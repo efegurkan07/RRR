@@ -18,6 +18,17 @@ public class Obstacle : MonoBehaviour
 	private void Start()
 	{
 		gameObject.AddComponent<Voidable>();
+		if (Damage > 0)
+		{
+			Instantiate(FindObjectOfType<GameHandler>().warningPrefab, gameObject.transform);
+		}
+		else if (Score > 0)
+		{
+			Instantiate(FindObjectOfType<GameHandler>().emojiPrefab, gameObject.transform);
+		}else if (SparePartHandOut != SparePart.SparePartType.EMPTY)
+		{
+			Instantiate(FindObjectOfType<GameHandler>().glitterPrefab, gameObject.transform);
+		}
 	}
 
 	private void Update()
