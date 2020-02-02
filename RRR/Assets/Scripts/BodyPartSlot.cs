@@ -8,8 +8,8 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     [SerializeField] Sprite nut;
     [SerializeField] Sprite gear;
 
-    [SerializeField]
-    private Image itemImage;
+    // [SerializeField]
+    // private Image itemImage;
     [SerializeField]
     private Image neededItemImage;
     [SerializeField]
@@ -23,7 +23,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         get => type;
     }
 
-    private SparePart.SparePartType _neededSparePart;
+    private SparePart.SparePartType _neededSparePart = SparePart.SparePartType.EMPTY;
 
     public SparePart.SparePartType  NeededSparePart
     {
@@ -41,14 +41,15 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     {
         type = bodyPart.Type;
         _bodyPart = bodyPart;
-        NeededSparePart = SparePart.GetRandomSparePartType();
-        itemImage.enabled = false;
+        if(NeededSparePart == SparePart.SparePartType.EMPTY)
+            NeededSparePart = SparePart.GetRandomSparePartType();
+        // itemImage.enabled = false;
     }
     
     void Repair(SparePart sparePart)
     {
-        itemImage.sprite = GetSprite(sparePart.Type);
-        itemImage.enabled = true;
+        // itemImage.sprite = GetSprite(sparePart.Type);
+        // itemImage.enabled = true;
         _bodyPart.Repair(sparePart);
         NeededSparePart = SparePart.GetRandomSparePartType();
     }
