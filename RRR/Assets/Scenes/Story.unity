@@ -167,6 +167,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -361,6 +363,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -433,6 +437,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300010, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -505,6 +511,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -660,6 +668,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -815,6 +825,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -970,6 +982,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u2026again!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85669fd77663346c38a5e53d5de2e601, type: 2}
@@ -1125,6 +1139,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300010, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1235,6 +1251,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1307,6 +1325,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1324,6 +1344,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900073865}
   m_CullTransparentMesh: 0
+--- !u!1001 &1000735297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7215946756235697496, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Background Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.44081712
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8178644
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.778438
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215946756235697498, guid: baeeaa074f3c446a5b59a776a3894f5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baeeaa074f3c446a5b59a776a3894f5f, type: 3}
 --- !u!1 &1011421430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1623,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1162977104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,6 +1643,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2348daff88c3943e1be396c2c81e9465, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1624,6 +1717,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "Help Sheila to fulfill her destiny and save as many people as you can by
     picking them up, ensuring their safety. \n\nBut beware: Sheila is not the mint
     robot unicorn she once used to be. \n\nDuring the escape from the expanding black
@@ -1820,6 +1915,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -1975,6 +2072,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: " \xA3Rainbow\n Unicorn\nRescue\n     Unit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -2196,6 +2295,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'In the main window:
 
 
@@ -2416,6 +2517,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "Sheila, the robot unicorn, once was the guardian of all of humanity. Her
     great times were over long ago. \n\nShe was stored away in a huge warehouse and
     forgotten. \n\nBut now after years of patient and faithful waiting, time has come
@@ -2575,6 +2678,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300010, guid: 96c9d7a47253f41fdb496c50a51c11cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -2907,6 +3012,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: '  Next'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb1b0220ba62d4f81b324cc5f591e0fe, type: 2}
@@ -3063,6 +3170,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "A few moments ago, Dr. Supercollidor, an overambitious scientist, screwed
     up on his latest experiment creating a tiny black hole. \n\nHe was not able to
     contain it, so now it grows and threatens to extinct humanity\u2026 "
@@ -3220,6 +3329,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u2026again and again!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 85669fd77663346c38a5e53d5de2e601, type: 2}

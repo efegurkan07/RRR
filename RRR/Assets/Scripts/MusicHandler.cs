@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicHandler : MonoBehaviour
 {
-    public static MusicHandler instance;
+    public static MusicHandler instance = null;
 
     [SerializeField] private AudioSource source;
 
@@ -12,17 +12,15 @@ public class MusicHandler : MonoBehaviour
     
     private float loopStarts = 22.154f;
     private float loopEnds = 51.692f;
-    void Awake()
+    void Start()
     {
-        if (instance == null)
-        {
+        if(instance == null) {
             instance = this;
             source = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(this);
+        else if (instance != this) {
+            Destroy(gameObject);
         }
     }
 
