@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Image = UnityEngine.UI.Image;
@@ -14,9 +16,12 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     private Image neededItemImage;
     [SerializeField]
     private HealthBarHandlerUI _healthBarHandlerUi;
-    
     [SerializeField]
     private BodyPart.BodyPartType type;
+
+    private bool repairable = true;
+    
+    [SerializeField] private GameObject outOfOrderText;
 
     public BodyPart.BodyPartType BodyPartType
     {
@@ -37,6 +42,11 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     private BodyPart _bodyPart;
 
+    public void Start()
+    {
+        repairable = true;
+    }
+    
     public void Initialize(BodyPart bodyPart)
     {
         type = bodyPart.Type;
@@ -56,7 +66,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (!_bodyPart.Repairable) return;
+        if (!repairable) return;
         
         InventorySlot inventorySlot = InventorySlot.itemBeingDragged;
         
@@ -71,7 +81,16 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
 
     void Update()
     {
-        _healthBarHandlerUi.SetHealth(_bodyPart.Health);
+        if (!repairable) return;
+        if (_bodyPart == null) return;
+        if (_bodyPart.Health > 0)
+        {
+            _healthBarHandlerUi.SetHealth(_bodyPart.Health);
+        }
+        else
+        {
+            Brake();
+        }
     }
     
     public Sprite GetSprite(SparePart.SparePartType type)
@@ -87,5 +106,14 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
             default:
                 return null;
         }
+    }
+
+    void Brake()
+    {
+        repairable = false;
+        outOfOrderText.SetActive(true);
+        RectTransform rectTransform = (RectTransform)outOfOrderText.transform;
+        rectTransform.Rotate(new Vector3(0, Random.Range(-20f, 20f), 0f));
+        _healthBarHandlerUi.gameObject.SetActive(false);
     }
 }

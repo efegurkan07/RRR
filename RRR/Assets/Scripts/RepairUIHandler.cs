@@ -111,7 +111,7 @@ public class RepairUIHandler : MonoBehaviour
 		do
 		{
 			part = validTypes[Random.Range(0, validTypes.Length)];
-		} while (sparePartCount[part] > Mathf.CeilToInt(_bodyParts.Count / 2f));
+		} while (sparePartCount[part] > 1);
 
 		foreach (SparePart.SparePartType type in validTypes)
 		{

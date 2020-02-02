@@ -12,7 +12,7 @@ public class MusicHandler : MonoBehaviour
     
     private float loopStarts = 22.154f;
     private float loopEnds = 51.692f;
-    void Start()
+    void Awake()
     {
         if(instance == null) {
             instance = this;
