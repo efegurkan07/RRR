@@ -13,11 +13,17 @@ public class MainMenuHandler : MonoBehaviour
 	
 	private void Awake()
 	{
-		_storyWasSeen = PlayerPrefs.GetInt("story_was_seen", 0) == 1;
+		_storyWasSeen = PlayerPrefs.GetInt("story_was_seen_once", 0) == 1;
 	}
 
 	private void Start()
 	{
+		if (!_storyWasSeen)
+		{
+			GotoStory();
+			return;
+		}
+
 		var buttons = FindObjectsOfType<Button>();
 		foreach (var button in buttons)
 		{
@@ -48,15 +54,7 @@ public class MainMenuHandler : MonoBehaviour
 
 	public void GotoGame()
 	{
-		if (!_storyWasSeen)
-		{
-			GameManager.Instance.CurrentState = GameState.FirstTimeStory;
-			GotoStory();
-		}
-		else
-		{
-			SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
-		}
+		SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
 	}
 
 	public void GotoCredits()
