@@ -116,6 +116,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     {
         repairable = false;
         outOfOrderText.SetActive(true);
+        _neededSparePart = SparePart.SparePartType.EMPTY;
         RectTransform rectTransform = (RectTransform)outOfOrderText.transform;
         rectTransform.Rotate(new Vector3(0, Random.Range(-20f, 20f), 0f));
         _healthBarHandlerUi.gameObject.SetActive(false);
