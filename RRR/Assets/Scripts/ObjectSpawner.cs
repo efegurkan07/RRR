@@ -33,10 +33,7 @@ public class ObjectSpawner
 	public Obstacle NextObjectToSpawn()
 	{
 		var spawnGood = Random.Range(0, 100) < _goodBadProbability;
-		// update probability for loser
-
 		_goodBadProbability = AdjustProbability(spawnGood, _goodBadProbability, _probabilityShift);
-		
 		return spawnGood ? GetGoodItem() : GetBadItem();
 	}
 
@@ -48,9 +45,7 @@ public class ObjectSpawner
 	private Obstacle GetGoodItem()
 	{
 		var spawnPeople = Random.Range(0, 100) < _humanSparePartProbability;
-		
 		_humanSparePartProbability = AdjustProbability(spawnPeople, _humanSparePartProbability, _probabilityShift);
-		
 		return spawnPeople ? GetPerson() : GetSparePart();
 	}
 	
