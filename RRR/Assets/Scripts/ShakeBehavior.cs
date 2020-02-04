@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShakeBehavior : MonoBehaviour
 {
     // Transform of the GameObject you want to shake
-    private Transform transform;
+    private Transform shakableTransform;
  
     // Desired duration of the shake effect
     private float _shakeDuration = 0f;
@@ -21,29 +21,29 @@ public class ShakeBehavior : MonoBehaviour
     
     void Awake()
     {
-        if (transform == null)
+        if (shakableTransform == null)
         {
-            transform = GetComponent(typeof(Transform)) as Transform;
+            shakableTransform = GetComponent(typeof(Transform)) as Transform;
         }
     }
     
     void OnEnable()
     {
-        initialPosition = transform.localPosition;
+        initialPosition = shakableTransform.localPosition;
     }
     
     void Update()
     {
         if (_shakeDuration > 0)
         {
-            transform.localPosition = initialPosition + Random.insideUnitSphere * _shakeMagnitude;
+            shakableTransform.localPosition = initialPosition + Random.insideUnitSphere * _shakeMagnitude;
    
             _shakeDuration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
             _shakeDuration = 0f;
-            transform.localPosition = initialPosition;
+            shakableTransform.localPosition = initialPosition;
         }
     }
     

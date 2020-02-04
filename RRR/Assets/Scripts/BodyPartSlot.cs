@@ -6,24 +6,16 @@ using Image = UnityEngine.UI.Image;
 
 public class BodyPartSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] Sprite gum;
-    [SerializeField] Sprite nut;
-    [SerializeField] Sprite gear;
-
-    // [SerializeField]
-    // private Image itemImage;
-    [SerializeField]
-    private Image neededItemImage;
-    [SerializeField]
-    private HealthBarHandlerUI _healthBarHandlerUi;
-    [SerializeField]
-    private BodyPart.BodyPartType type;
-
-    [SerializeField] private AudioSource itemAppliedSound;
+    [SerializeField] Sprite gum = default;
+    [SerializeField] Sprite nut = default;
+    [SerializeField] Sprite gear = default;
+    [SerializeField] private Image neededItemImage = default;
+    [SerializeField] private HealthBarHandlerUI _healthBarHandlerUi = default;
+    [SerializeField] private BodyPart.BodyPartType type = default;
+    [SerializeField] private AudioSource itemAppliedSound = default;
+    [SerializeField] private GameObject outOfOrderText = default;
 
     private bool repairable = true;
-    
-    [SerializeField] private GameObject outOfOrderText;
 
     public BodyPart.BodyPartType BodyPartType
     {

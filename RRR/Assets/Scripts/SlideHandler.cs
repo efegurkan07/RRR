@@ -12,8 +12,8 @@ public class SlideHandler : MonoBehaviour
 
     public SpriteRenderer bgRenderer; 
     
-    [SerializeField] private GameObject[] Slides;
-    [SerializeField] private float SlideTimeout;
+    [SerializeField] private GameObject[] Slides = default;
+    [SerializeField] private float SlideTimeout = default;
 
     private int _currentIndex = 0;
     private float _timePassed;

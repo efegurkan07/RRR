@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
-	[SerializeField] private GameObject _deathAnimation;
-	[SerializeField] private HealthBarHandler _healthBar;
+	[SerializeField] private GameObject _deathAnimation = default;
+	[SerializeField] private HealthBarHandler _healthBar = default;
 
 	private float Health
 	{

@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class BackgroundHandler : MonoBehaviour
 {
-	[SerializeField] private Material _skylineMaterial;
-	[SerializeField] private GameObject[] _buildingPrefabs;
-	[SerializeField] private Transform _buildingsContainer;
+	[SerializeField] private Material _skylineMaterial = default;
+	[SerializeField] private GameObject[] _buildingPrefabs = default;
+	[SerializeField] private Transform _buildingsContainer = default;
+	
 	private float _secondsToNextBuilding = 0f;
 	private List<Transform> _spawnedBuildings = new List<Transform>();
 

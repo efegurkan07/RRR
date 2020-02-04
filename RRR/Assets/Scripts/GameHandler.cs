@@ -17,13 +17,13 @@ public class ObstacleSpawnConfig
 public class GameHandler : MonoBehaviour
 {
 	public Lane[] allLanes;
-	[SerializeField] private ObstacleSpawnConfig[] _obstacleSpawnConfigs;
-	[SerializeField] private ObstacleSpawnConfig[] _sparePartsSpawnConfigs;
-	[SerializeField] private ObstacleSpawnConfig[] _peopleSpawnConfigs;
-	[SerializeField] private Transform _obstacleContainer;
+	[SerializeField] private ObstacleSpawnConfig[] _obstacleSpawnConfigs = default;
+	[SerializeField] private ObstacleSpawnConfig[] _sparePartsSpawnConfigs = default;
+	[SerializeField] private ObstacleSpawnConfig[] _peopleSpawnConfigs = default;
+	[SerializeField] private Transform _obstacleContainer = default;
 	[SerializeField] private GameObject jetpackGuy = default;
-
-	[SerializeField] private Robot _robotPrefab;
+	[SerializeField] private Robot _robotPrefab = default;
+	
 	public GameObject warningPrefab;
 	public GameObject emojiPrefab;
 	public GameObject glitterPrefab;

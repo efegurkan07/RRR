@@ -8,13 +8,9 @@ public class RepairUIHandler : MonoBehaviour
 	public static RepairUIHandler instance;
 	public static Robot robot;
 	
-	[SerializeField]
-	List<InventorySlot> _inventory; 
-	[SerializeField]
-	List<BodyPartSlot> _bodyParts;
-
-	[SerializeField] private AudioSource closeSound;
-	
+	[SerializeField] List<InventorySlot> _inventory = default; 
+	[SerializeField] List<BodyPartSlot> _bodyParts = default;
+	[SerializeField] private AudioSource closeSound = default;
 	
 	private void Awake()
 	{

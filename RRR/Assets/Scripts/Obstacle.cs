@@ -6,7 +6,7 @@ public class Obstacle : MonoBehaviour
 	[SerializeField] private int Damage = 0;
 	[SerializeField] private int Score = 0;
 	[SerializeField] private SparePart.SparePartType SparePartHandOut = SparePart.SparePartType.EMPTY;
-	[SerializeField] private GameObject DeathFX;
+	[SerializeField] private GameObject DeathFX = default;
 	
 	private AudioSource DeathSound;
 

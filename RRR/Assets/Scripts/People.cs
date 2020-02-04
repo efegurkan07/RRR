@@ -6,7 +6,7 @@ namespace DefaultNamespace
 {
 	public class People : MonoBehaviour
 	{
-		[SerializeField] AudioClip[] TriggerSounds;
+		[SerializeField] AudioClip[] TriggerSounds = default;
 
 		private void Start()
 		{

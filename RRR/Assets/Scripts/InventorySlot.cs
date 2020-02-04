@@ -14,9 +14,9 @@ public class InventorySlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     private Image _image;
     public SparePart SparePart => _sparePart;
 
-    [SerializeField] Sprite gum;
-    [SerializeField] Sprite nut;
-    [SerializeField] Sprite gear;
+    [SerializeField] Sprite gum = default;
+    [SerializeField] Sprite nut = default;
+    [SerializeField] Sprite gear = default;
 
     private void Awake()
     {
