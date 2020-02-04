@@ -11,7 +11,6 @@ public static class Config
 	public static int damageOverTime = 1;
 	public const int bodyPartCount = 3;
 	public const int initialBodyPartHealth = 100;
-	public const float secondsPerLevel = 10000f;
 	public const int inventoryCapacity = 5;
 	//used depending on lane texture tiling
 	public const float laneTilingMagicNr = 13.5f; //yes, this is a proper balancing calculation :P
@@ -19,4 +18,8 @@ public static class Config
 	public static WaitForSeconds damageOverTimePeriod = new WaitForSeconds(1f);
 	public const int obstacleProbability = 70;
 	public const int healAmount = 20;
+	
+	public const int goodBadProbability = 40; // 40% good, 60% bad
+	public const int humanSparePartProbability = 10; // 10% people, 90% spare parts
+	public const int probabilityShift = 10; // divided by amount of other items
 }

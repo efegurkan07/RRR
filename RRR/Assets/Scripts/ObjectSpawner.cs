@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 class SpawnMapping {
@@ -11,19 +12,42 @@ public class ObjectSpawner
 {
 	private readonly ObstacleSpawnConfig[] _obstacles;
 	private readonly ObstacleSpawnConfig[] _pickups;
-
-	public ObjectSpawner(ObstacleSpawnConfig[] obstacles, ObstacleSpawnConfig[] pickups)
+	private readonly ObstacleSpawnConfig[] _people;
+	
+	public ObjectSpawner(ObstacleSpawnConfig[] obstacles, ObstacleSpawnConfig[] pickups, ObstacleSpawnConfig[] people)
 	{
-		_obstacles = obstacles;
-		_pickups = pickups;
+		// create copy
+		_obstacles = obstacles.ToArray();
+		_pickups = pickups.ToArray();
+		_people = people.ToArray();
 	}
 
-	public Obstacle GetNextObject()
+	public Obstacle NextObjectToSpawn()
 	{
-		var spawnObstacle = Random.Range(0, 100) < Config.obstacleProbability; // 0 - 99
-		var objectsToChooseFrom = spawnObstacle ? _obstacles : _pickups;
-		
-		return PickRandom(objectsToChooseFrom);
+		var spawnGood = Random.Range(0, 100) < Config.goodBadProbability;
+		// update probability for loser
+		return spawnGood ? GetGoodItem() : GetBadItem();
+	}
+
+	private Obstacle GetBadItem()
+	{
+		return PickRandom(_obstacles);
+	}
+	
+	private Obstacle GetGoodItem()
+	{
+		var spawnPeople = Random.Range(0, 100) < Config.humanSparePartProbability;
+		return spawnPeople ? GetPerson() : GetSparePart();
+	}
+	
+	private Obstacle GetPerson()
+	{
+		return PickRandom(_people);
+	}
+	
+	private Obstacle GetSparePart()
+	{
+		return PickRandom(_pickups);
 	}
 
 	private Obstacle PickRandom(ObstacleSpawnConfig[] objectsToChooseFrom)

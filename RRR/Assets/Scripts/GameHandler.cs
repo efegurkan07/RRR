@@ -18,7 +18,8 @@ public class GameHandler : MonoBehaviour
 {
 	public Lane[] allLanes;
 	[SerializeField] private ObstacleSpawnConfig[] _obstacleSpawnConfigs;
-	[SerializeField] private ObstacleSpawnConfig[] _peoplePartsSpawnConfigs;
+	[SerializeField] private ObstacleSpawnConfig[] _sparePartsSpawnConfigs;
+	[SerializeField] private ObstacleSpawnConfig[] _peopleSpawnConfigs;
 	[SerializeField] private Transform _obstacleContainer;
 	[SerializeField] private GameObject jetpackGuy = default;
 
@@ -31,7 +32,7 @@ public class GameHandler : MonoBehaviour
 	
 	private void Awake()
 	{
-		_objectSpawner = new ObjectSpawner(_obstacleSpawnConfigs, _peoplePartsSpawnConfigs);
+		_objectSpawner = new ObjectSpawner(_obstacleSpawnConfigs, _sparePartsSpawnConfigs, _peopleSpawnConfigs);
 	}
 
 	void Start()
@@ -105,8 +106,8 @@ public class GameHandler : MonoBehaviour
 			for (int i = 0; i < indecies.Count; i++)
 			{
 				var lineDepth = allLanes[indecies[i]].transform.position.z;
-				
-				var nextObstacle = _objectSpawner.GetNextObject();
+
+				var nextObstacle = _objectSpawner.NextObjectToSpawn();
 				
 				Instantiate(
 					nextObstacle.gameObject,
