@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -11,12 +12,6 @@ public class ObstacleSpawnConfig
 {
 	public Obstacle obstaclePrefab;
 	public int Probability;
-}
-
-class SpawnMapping {
-	public int Index;
-	public int Min;
-	public int Max;
 }
 
 public class GameHandler : MonoBehaviour
@@ -31,6 +26,13 @@ public class GameHandler : MonoBehaviour
 	public GameObject warningPrefab;
 	public GameObject emojiPrefab;
 	public GameObject glitterPrefab;
+
+	private ObjectSpawner _objectSpawner;
+	
+	private void Awake()
+	{
+		_objectSpawner = new ObjectSpawner(_obstacleSpawnConfigs, _peoplePartsSpawnConfigs);
+	}
 
 	void Start()
 	{
@@ -104,50 +106,18 @@ public class GameHandler : MonoBehaviour
 			{
 				var lineDepth = allLanes[indecies[i]].transform.position.z;
 				
-				var spawnObstacle = Random.Range(0, 100) < Config.obstacleProbability; // 0 - 99
-				var objectsToChooseFrom = spawnObstacle ? _obstacleSpawnConfigs : _peoplePartsSpawnConfigs;
+				var nextObstacle = _objectSpawner.GetNextObject();
 				
-				var randomObstacle = PickRandom(objectsToChooseFrom);
 				Instantiate(
-					randomObstacle.gameObject,
+					nextObstacle.gameObject,
 					new Vector3(Config.rightLineLimit, 0, lineDepth),
-					randomObstacle.transform.rotation,
+					nextObstacle.transform.rotation,
 					_obstacleContainer
 				);
 			}
 
 			GameManager.Instance.secondsToNextObstacles = Random.Range(0.5f, 1f) * Config.levelRunSpeed;
 		}
-	}
-
-	private Obstacle PickRandom(ObstacleSpawnConfig[] objectsToChooseFrom)
-	{
-		List<SpawnMapping> probabilityMapping = new List<SpawnMapping>();
-		int maxProbability = 0;
-		
-		for (int i = 0; i < objectsToChooseFrom.Length; i++)
-		{
-			probabilityMapping.Add(new SpawnMapping()
-			{
-				Index = i,
-				Min = maxProbability,
-				Max = maxProbability + objectsToChooseFrom[i].Probability - 1
-			});
-			maxProbability += objectsToChooseFrom[i].Probability;
-		}
-		
-		int random = Random.Range(0, maxProbability);
-
-		int indexToSpawn = -1;
-		foreach(SpawnMapping m in probabilityMapping)
-		{
-			if (m.Min <= random && m.Max >= random)
-			{
-				indexToSpawn = m.Index;
-			}
-		}
-
-		return objectsToChooseFrom[indexToSpawn].obstaclePrefab;
 	}
 
 	private void AnimateLanes()
