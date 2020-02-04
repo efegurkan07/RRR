@@ -35,6 +35,7 @@ public class GameHandler : MonoBehaviour
 		_objectSpawner = new ObjectSpawner(
 			Config.goodBadProbability, 
 			Config.humanSparePartProbability, 
+			Config.probabilityShift,
 			_obstacleSpawnConfigs, 
 			_sparePartsSpawnConfigs, 
 			_peopleSpawnConfigs

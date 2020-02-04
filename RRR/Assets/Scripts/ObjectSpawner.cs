@@ -16,8 +16,9 @@ public class ObjectSpawner
 
 	private int _goodBadProbability;
 	private int _humanSparePartProbability;
-	
-	public ObjectSpawner(int goodBadProbability, int humanSparePartProbability, ObstacleSpawnConfig[] obstacles, ObstacleSpawnConfig[] pickups, ObstacleSpawnConfig[] people)
+	private readonly int _probabilityShift;
+
+	public ObjectSpawner(int goodBadProbability, int humanSparePartProbability, int probabilityShift, ObstacleSpawnConfig[] obstacles, ObstacleSpawnConfig[] pickups, ObstacleSpawnConfig[] people)
 	{
 		// create copy
 		_obstacles = obstacles.ToArray();
@@ -26,6 +27,7 @@ public class ObjectSpawner
 
 		_goodBadProbability = goodBadProbability;
 		_humanSparePartProbability = humanSparePartProbability;
+		_probabilityShift = probabilityShift;
 	}
 
 	public Obstacle NextObjectToSpawn()
@@ -33,7 +35,7 @@ public class ObjectSpawner
 		var spawnGood = Random.Range(0, 100) < _goodBadProbability;
 		// update probability for loser
 
-		_goodBadProbability = adjustProbability(spawnGood, _goodBadProbability, 10);
+		_goodBadProbability = adjustProbability(spawnGood, _goodBadProbability, _probabilityShift);
 		
 		return spawnGood ? GetGoodItem() : GetBadItem();
 	}
@@ -47,7 +49,7 @@ public class ObjectSpawner
 	{
 		var spawnPeople = Random.Range(0, 100) < _humanSparePartProbability;
 		
-		_humanSparePartProbability = adjustProbability(spawnPeople, _humanSparePartProbability, 10);
+		_humanSparePartProbability = adjustProbability(spawnPeople, _humanSparePartProbability, _probabilityShift);
 		
 		return spawnPeople ? GetPerson() : GetSparePart();
 	}
