@@ -35,7 +35,7 @@ public class ObjectSpawner
 		var spawnGood = Random.Range(0, 100) < _goodBadProbability;
 		// update probability for loser
 
-		_goodBadProbability = adjustProbability(spawnGood, _goodBadProbability, _probabilityShift);
+		_goodBadProbability = AdjustProbability(spawnGood, _goodBadProbability, _probabilityShift);
 		
 		return spawnGood ? GetGoodItem() : GetBadItem();
 	}
@@ -49,7 +49,7 @@ public class ObjectSpawner
 	{
 		var spawnPeople = Random.Range(0, 100) < _humanSparePartProbability;
 		
-		_humanSparePartProbability = adjustProbability(spawnPeople, _humanSparePartProbability, _probabilityShift);
+		_humanSparePartProbability = AdjustProbability(spawnPeople, _humanSparePartProbability, _probabilityShift);
 		
 		return spawnPeople ? GetPerson() : GetSparePart();
 	}
@@ -94,7 +94,7 @@ public class ObjectSpawner
 		return objectsToChooseFrom[indexToSpawn].obstaclePrefab;
 	}
 
-	private int adjustProbability(bool left, int probability, int adjustment)
+	private int AdjustProbability(bool left, int probability, int adjustment)
 	{
 		if (left)
 		{
