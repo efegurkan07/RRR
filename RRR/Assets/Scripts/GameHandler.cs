@@ -32,7 +32,13 @@ public class GameHandler : MonoBehaviour
 	
 	private void Awake()
 	{
-		_objectSpawner = new ObjectSpawner(_obstacleSpawnConfigs, _sparePartsSpawnConfigs, _peopleSpawnConfigs);
+		_objectSpawner = new ObjectSpawner(
+			Config.goodBadProbability, 
+			Config.humanSparePartProbability, 
+			_obstacleSpawnConfigs, 
+			_sparePartsSpawnConfigs, 
+			_peopleSpawnConfigs
+		);
 	}
 
 	void Start()
