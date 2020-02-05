@@ -86,7 +86,23 @@ public class ObjectSpawner
 			}
 		}
 
-		return objectsToChooseFrom[indexToSpawn].obstaclePrefab;
+		var objectToSpawn = objectsToChooseFrom[indexToSpawn];
+		objectToSpawn.Probability -= _probabilityShift;
+
+		if (objectToSpawn.Probability < 0) objectToSpawn.Probability = 0;
+
+		var numObjectsToAdjust = objectsToChooseFrom.Length - 1;
+		float adjustmentPerObject = (_probabilityShift * 1f) / numObjectsToAdjust;
+		for (int i = 0; i < objectsToChooseFrom.Length; i++)
+		{
+			if (i != indexToSpawn)
+			{
+				objectsToChooseFrom[i].Probability += Mathf.FloorToInt(adjustmentPerObject);
+				if (objectsToChooseFrom[i].Probability > 100) objectsToChooseFrom[i].Probability = 100;
+			}
+		}
+
+		return objectToSpawn.obstaclePrefab;
 	}
 
 	private int AdjustProbability(bool left, int probability, int adjustment)
