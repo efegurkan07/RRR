@@ -141,7 +141,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -640,123 +640,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
         type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _peopleSpawnConfigs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
       propertyPath: _obstacleContainer
       value: 
       objectReference: {fileID: 222354159}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _peopleSpawnConfigs.Array.data[0].obstaclePrefab
-      value: 
-      objectReference: {fileID: 8182880966773560597, guid: d8143b55e0d3a41d9ad0aa5abdb0254c,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _peopleSpawnConfigs.Array.data[1].obstaclePrefab
-      value: 
-      objectReference: {fileID: 8182880966773560597, guid: f63c9ec7af16f4189a1eacb4a85f9f2b,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _peopleSpawnConfigs.Array.data[0].Probability
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _peopleSpawnConfigs.Array.data[1].Probability
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[0].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: fcc3eb6fae1f645209365e5ae4f35bf7,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[1].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: 7873e1a1f0eed48f6ab9bb45781b1477,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[2].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: 3e2c0d903f3ce4d56a30d3a7ba9f5d1c,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[0].Probability
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[1].Probability
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _sparePartsSpawnConfigs.Array.data[2].Probability
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[0].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: c632f8046c37d4f3b94546036b2ad412,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[0].Probability
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[1].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: 1e0f92f7ced684b7eb41f3543ae3f12e,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[1].Probability
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[2].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: 39de12a01606a4020bb5a73e80cd55fb,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[2].Probability
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[3].obstaclePrefab
-      value: 
-      objectReference: {fileID: 114332922875022822, guid: feb0b18633630412bb4f1f7e73491b78,
-        type: 3}
-    - target: {fileID: 1383759142124798690, guid: 91922d80075fd4aa18383be40533defd,
-        type: 3}
-      propertyPath: _obstacleSpawnConfigs.Array.data[3].Probability
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 1383759142124798691, guid: 91922d80075fd4aa18383be40533defd,
         type: 3}
       propertyPath: m_LocalPosition.x
