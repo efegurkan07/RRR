@@ -1,7 +1,7 @@
-﻿using Boo.Lang.Runtime;
-
+﻿
 public class AutoIncrementVersionCodeInCloudBuild : UnityEngine.MonoBehaviour
 {
+#if UNITY_CLOUD_BUILD
     public static void PreExport(UnityEngine.CloudBuild.BuildManifestObject manifest)
     {
         var buildNumber = manifest.GetValue<string>("buildNumber");
@@ -18,4 +18,5 @@ public class AutoIncrementVersionCodeInCloudBuild : UnityEngine.MonoBehaviour
         UnityEditor.PlayerSettings.Android.bundleVersionCode = int.Parse(buildNumber);
         UnityEditor.PlayerSettings.iOS.buildNumber = buildNumber;
     }
+#endif
 }
