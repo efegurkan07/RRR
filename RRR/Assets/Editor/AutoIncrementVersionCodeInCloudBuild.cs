@@ -11,8 +11,6 @@ public class AutoIncrementVersionCodeInCloudBuild : UnityEngine.MonoBehaviour
         {
             UnityEngine.Debug.LogError("Could not retrieve a build number from the manifest.");
             UnityEngine.Debug.LogError(manifest.ToString());
-            
-            throw new RuntimeException("Could not retrieve a build number from the manifest.");
         }
         
         UnityEditor.PlayerSettings.Android.bundleVersionCode = int.Parse(buildNumber);
