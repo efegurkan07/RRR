@@ -43,6 +43,8 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
     
     public void Initialize(BodyPart bodyPart)
     {
+        if (!repairable) return;
+
         type = bodyPart.Type;
         _bodyPart = bodyPart;
         if(NeededSparePart == SparePart.SparePartType.EMPTY)
