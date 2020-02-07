@@ -20,19 +20,6 @@ public class RepairUIHandler : MonoBehaviour
 		else if (instance != this) {
 			Destroy(gameObject);
 		}
-		
-		_bodyParts = new List<BodyPartSlot>();
-		_inventory = new List<InventorySlot>();
-		
-		for (int i = 0; i < Config.bodyPartCount ; i++)
-		{
-			_bodyParts.Add(transform.GetChild(0).GetChild(i + 1).GetComponentInChildren<BodyPartSlot>());
-		}
-		
-		for (int i = 0; i < Config.inventoryCapacity; i++)
-		{
-			_inventory.Add(transform.GetChild(1).GetChild(i).GetComponentInChildren<InventorySlot>());
-		}
 	}
 
 	private void OnEnable()
