@@ -10,7 +10,7 @@ public static class Config
 	public static int redHealthIndicatorValue = 30;
 	public static int damageOverTime = 1;
 	public const int initialBodyPartHealth = 100;
-	public const int inventoryCapacity = 5;
+	public const int inventoryCapacity = 6;
 	//used depending on lane texture tiling
 	public const float laneTilingMagicNr = 13.5f; //yes, this is a proper balancing calculation :P
 	public const float robotRunSpeed = 10f * (levelRunSpeed / 7.75f); //this too!
