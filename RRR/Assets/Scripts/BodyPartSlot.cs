@@ -87,7 +87,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         }
         else
         {
-            Brake();
+            Break();
         }
     }
     
@@ -106,7 +106,7 @@ public class BodyPartSlot : MonoBehaviour, IDropHandler
         }
     }
 
-    void Brake()
+    void Break()
     {
         repairable = false;
         outOfOrderText.SetActive(true);
