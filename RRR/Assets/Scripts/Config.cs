@@ -9,7 +9,6 @@ public static class Config
 	public static int yellowHealthIndicatorValue = 70;
 	public static int redHealthIndicatorValue = 30;
 	public static int damageOverTime = 1;
-	public const int bodyPartCount = 3;
 	public const int initialBodyPartHealth = 100;
 	public const int inventoryCapacity = 5;
 	//used depending on lane texture tiling
